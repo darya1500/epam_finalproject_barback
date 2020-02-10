@@ -132,6 +132,7 @@ public class User implements java.io.Serializable {
         return true;
     }
 
+    
     @Override
     public int hashCode() {
         return Objects.hash(id, name, nameRU, email, password, description, status);
