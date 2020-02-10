@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="org.webjars.npm:w3-css:4.1.0" type="repository">
+    <properties maven-id="org.webjars.npm:w3-css:4.1.0" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/w3-css-4.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
