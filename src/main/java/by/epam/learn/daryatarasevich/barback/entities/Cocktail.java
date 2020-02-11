@@ -10,6 +10,9 @@ public class Cocktail {
     private User author;
     List<Component> components;
 
+    public Cocktail() {
+    }
+
     public Cocktail(String nameEN, String nameRU, User author, List<Component> components) {
         this.nameEN = nameEN;
         this.nameRU = nameRU;
