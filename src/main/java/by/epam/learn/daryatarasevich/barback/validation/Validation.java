@@ -50,4 +50,3 @@ public class Validation {
         return validated;
     }
 }
-
