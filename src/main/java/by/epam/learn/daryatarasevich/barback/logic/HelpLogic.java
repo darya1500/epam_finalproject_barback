@@ -4,7 +4,6 @@ import by.epam.learn.daryatarasevich.barback.dao.HelpDAO;
 import by.epam.learn.daryatarasevich.barback.entities.Help;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 

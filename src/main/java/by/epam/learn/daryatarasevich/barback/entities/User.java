@@ -20,6 +20,7 @@ public class User implements java.io.Serializable {
         this.status = status;
     }
 
+
     public User(int id, String name, String nameRU, String email, String password, String description, Status status) {
         this.id = id;
         this.name = name;

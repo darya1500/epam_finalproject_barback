@@ -2,6 +2,7 @@ package by.epam.learn.daryatarasevich.barback.pool;
 
 import java.util.ResourceBundle;
 
+
 public class DBManager {
     private final static DBManager instance = new DBManager();
     private ResourceBundle bundle = ResourceBundle.getBundle("dbproperties");

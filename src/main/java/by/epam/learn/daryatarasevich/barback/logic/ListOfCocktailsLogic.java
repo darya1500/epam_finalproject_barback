@@ -10,7 +10,6 @@ import by.epam.learn.daryatarasevich.barback.entities.User;
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import by.epam.learn.daryatarasevich.barback.utils.AppUtils;
 import by.epam.learn.daryatarasevich.barback.validation.Validation;
-
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;

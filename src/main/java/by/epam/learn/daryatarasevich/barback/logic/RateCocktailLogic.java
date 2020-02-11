@@ -10,7 +10,6 @@ import by.epam.learn.daryatarasevich.barback.validation.LoginValidation;
 import by.epam.learn.daryatarasevich.barback.validation.RatingValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 

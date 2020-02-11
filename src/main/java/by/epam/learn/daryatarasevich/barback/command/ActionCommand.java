@@ -3,7 +3,6 @@ package by.epam.learn.daryatarasevich.barback.command;
 import by.epam.learn.daryatarasevich.barback.exception.IncorrectPasswordException;
 import by.epam.learn.daryatarasevich.barback.exception.IngredientDBException;
 import by.epam.learn.daryatarasevich.barback.exception.NoSuchUserException;
-
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 

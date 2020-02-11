@@ -5,7 +5,6 @@ import by.epam.learn.daryatarasevich.barback.dao.RatingDAO;
 import by.epam.learn.daryatarasevich.barback.dao.UserDAO;
 import by.epam.learn.daryatarasevich.barback.entities.Cocktail;
 import by.epam.learn.daryatarasevich.barback.entities.User;
-
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;

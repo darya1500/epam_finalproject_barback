@@ -2,7 +2,6 @@ package by.epam.learn.daryatarasevich.barback.filter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
-
 /**
  * An extension for the HTTPServletRequest that overrides the getUserPrincipal()
  * and isUserInRole(). We supply these implementations here, where they are not

@@ -4,3 +4,4 @@ public class NoSuchIngredientsException extends Exception {
     public NoSuchIngredientsException(String message) {
     }
 }
+

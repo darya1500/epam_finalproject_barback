@@ -7,7 +7,6 @@ import by.epam.learn.daryatarasevich.barback.logic.ListOfCocktailsLogic;
 import by.epam.learn.daryatarasevich.barback.logic.RateCocktailLogic;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;

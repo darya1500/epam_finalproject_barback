@@ -7,6 +7,7 @@ import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+
 public class RegisterLogic {
     private UserDAO userDAO = new UserDAO();
     private static final Logger LOGGER = LogManager.getLogger(RegisterLogic.class);

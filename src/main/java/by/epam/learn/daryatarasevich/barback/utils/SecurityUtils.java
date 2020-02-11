@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Set;
 
+
 public class SecurityUtils {
     // check if this 'request' needs logging.
     public static boolean isSecurityPage(HttpServletRequest request) {

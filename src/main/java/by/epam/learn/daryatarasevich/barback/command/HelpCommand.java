@@ -1,16 +1,11 @@
 package by.epam.learn.daryatarasevich.barback.command;
 
-import by.epam.learn.daryatarasevich.barback.dao.UserDAO;
-import by.epam.learn.daryatarasevich.barback.entities.User;
-import by.epam.learn.daryatarasevich.barback.exception.MessageConstants;
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import by.epam.learn.daryatarasevich.barback.logic.HelpLogic;
 import by.epam.learn.daryatarasevich.barback.validation.HelpValidation;
 import by.epam.learn.daryatarasevich.barback.validation.RegisterValidation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
 public class HelpCommand implements ActionCommand {

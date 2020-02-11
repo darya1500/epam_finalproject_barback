@@ -7,6 +7,7 @@ public class Help {
     private String message;
     private HelpStatus status;
 
+
     public Help(String name, String email, String message, HelpStatus status) {
         this.name = name;
         this.email = email;

@@ -2,7 +2,6 @@ package by.epam.learn.daryatarasevich.barback.command;
 
 import by.epam.learn.daryatarasevich.barback.entities.User;
 import by.epam.learn.daryatarasevich.barback.logic.UsersToChangeStatusLogic;
-
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,5 @@
 package by.epam.learn.daryatarasevich.barback.dao;
 
-import by.epam.learn.daryatarasevich.barback.entities.Cocktail;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

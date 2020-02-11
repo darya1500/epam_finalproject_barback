@@ -19,3 +19,4 @@ public class DeleteAccountLogic {
         return MESSAGE;
     }
 }
+

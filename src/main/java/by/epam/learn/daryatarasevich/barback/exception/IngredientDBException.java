@@ -16,3 +16,4 @@ public class IngredientDBException extends Exception {
     public IngredientDBException() {
     }
 }
+

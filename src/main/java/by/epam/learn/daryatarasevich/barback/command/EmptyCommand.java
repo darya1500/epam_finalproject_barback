@@ -2,7 +2,6 @@ package by.epam.learn.daryatarasevich.barback.command;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import javax.servlet.http.HttpServletRequest;
 
 public class EmptyCommand implements ActionCommand {

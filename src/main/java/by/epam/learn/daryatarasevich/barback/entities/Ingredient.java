@@ -9,6 +9,7 @@ public class Ingredient {
     private boolean action;
     private boolean alcohol;
 
+
     public Ingredient(int id, String nameEN, String nameRU, boolean isAction, boolean isAlcohol) {
         this.id = id;
         this.nameEN = nameEN;

@@ -1,14 +1,11 @@
 package by.epam.learn.daryatarasevich.barback.command;
 
 import by.epam.learn.daryatarasevich.barback.entities.Cocktail;
-import by.epam.learn.daryatarasevich.barback.entities.User;
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import by.epam.learn.daryatarasevich.barback.logic.ListOfCocktailsLogic;
-import by.epam.learn.daryatarasevich.barback.logic.ListOfUsersLogic;
 import by.epam.learn.daryatarasevich.barback.logic.RateCocktailLogic;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;

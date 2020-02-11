@@ -6,8 +6,6 @@ import by.epam.learn.daryatarasevich.barback.logic.ListOfUsersLogic;
 import by.epam.learn.daryatarasevich.barback.logic.RateCocktailLogic;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;

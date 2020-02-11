@@ -1,6 +1,7 @@
 package by.epam.learn.daryatarasevich.barback.pool;
 
 public final class DBParameter {
+
     private DBParameter() {
     }
 

@@ -2,6 +2,7 @@ package by.epam.learn.daryatarasevich.barback.config;
 
 import java.util.*;
 
+
 public class SecurityConfig {
     public static final String ROLE_USER = "USER";
     public static final String ROLE_BARTENDER = "BARTENDER";

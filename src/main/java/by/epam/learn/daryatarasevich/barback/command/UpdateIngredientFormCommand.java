@@ -4,9 +4,7 @@ import by.epam.learn.daryatarasevich.barback.dao.IngredientDAO;
 import by.epam.learn.daryatarasevich.barback.entities.Ingredient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 public class UpdateIngredientFormCommand implements ActionCommand {
     IngredientDAO ingredientDAO=new IngredientDAO();

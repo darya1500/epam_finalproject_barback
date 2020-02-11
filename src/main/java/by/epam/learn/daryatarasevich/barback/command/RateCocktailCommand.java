@@ -8,7 +8,6 @@ import by.epam.learn.daryatarasevich.barback.exception.RatingErrorException;
 import by.epam.learn.daryatarasevich.barback.logic.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 

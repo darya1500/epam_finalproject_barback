@@ -2,10 +2,8 @@ package by.epam.learn.daryatarasevich.barback.dao;
 
 import by.epam.learn.daryatarasevich.barback.entities.Help;
 import by.epam.learn.daryatarasevich.barback.entities.HelpStatus;
-import by.epam.learn.daryatarasevich.barback.entities.Ingredient;
 import by.epam.learn.daryatarasevich.barback.exception.ConnectionPoolException;
 import by.epam.learn.daryatarasevich.barback.pool.ConnectionPool;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

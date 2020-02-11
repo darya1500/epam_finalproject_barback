@@ -1,5 +1,6 @@
 package by.epam.learn.daryatarasevich.barback.command;
 
+
 public enum CommandEnum {
     LOGIN {
         {

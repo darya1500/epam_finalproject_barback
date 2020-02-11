@@ -8,7 +8,6 @@ import by.epam.learn.daryatarasevich.barback.logic.LoginLogic;
 import by.epam.learn.daryatarasevich.barback.validation.LoginValidation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 

@@ -3,6 +3,7 @@ package by.epam.learn.daryatarasevich.barback.logic;
 import by.epam.learn.daryatarasevich.barback.dao.UserDAO;
 import by.epam.learn.daryatarasevich.barback.entities.User;
 
+
 public class LoginLogic {
     /**
      * To check user in database.

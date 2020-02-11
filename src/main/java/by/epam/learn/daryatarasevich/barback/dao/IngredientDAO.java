@@ -5,7 +5,6 @@ import by.epam.learn.daryatarasevich.barback.exception.*;
 import by.epam.learn.daryatarasevich.barback.pool.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

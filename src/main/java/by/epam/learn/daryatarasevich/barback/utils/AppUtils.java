@@ -1,7 +1,6 @@
 package by.epam.learn.daryatarasevich.barback.utils;
 
 import by.epam.learn.daryatarasevich.barback.entities.User;
-
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;

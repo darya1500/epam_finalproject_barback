@@ -5,7 +5,6 @@ import by.epam.learn.daryatarasevich.barback.entities.User;
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import by.epam.learn.daryatarasevich.barback.logic.ClientType;
 import by.epam.learn.daryatarasevich.barback.logic.ListOfUsersLogic;
-import by.epam.learn.daryatarasevich.barback.logic.LoginLogic;
 import by.epam.learn.daryatarasevich.barback.logic.RegisterLogic;
 import by.epam.learn.daryatarasevich.barback.utils.AppUtils;
 import by.epam.learn.daryatarasevich.barback.validation.RegisterValidation;

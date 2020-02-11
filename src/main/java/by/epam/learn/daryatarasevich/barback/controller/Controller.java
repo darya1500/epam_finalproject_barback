@@ -5,8 +5,6 @@ import by.epam.learn.daryatarasevich.barback.command.ActionFactory;
 import by.epam.learn.daryatarasevich.barback.command.ConfigurationManager;
 import by.epam.learn.daryatarasevich.barback.exception.*;
 import by.epam.learn.daryatarasevich.barback.pool.ConnectionPool;
-
-import javax.naming.Context;
 import javax.naming.NamingException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,8 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
 
 @WebServlet("/controller")
 public class Controller extends HttpServlet {

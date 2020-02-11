@@ -3,7 +3,6 @@ package by.epam.learn.daryatarasevich.barback.command;
 import by.epam.learn.daryatarasevich.barback.entities.Status;
 import by.epam.learn.daryatarasevich.barback.entities.User;
 import by.epam.learn.daryatarasevich.barback.logic.ListOfUsersLogic;
-
 import javax.servlet.http.HttpServletRequest;
 
 public class ChangeStatusCommand implements ActionCommand {

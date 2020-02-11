@@ -7,7 +7,6 @@ import by.epam.learn.daryatarasevich.barback.exception.NoSuchIngredientsExceptio
 import by.epam.learn.daryatarasevich.barback.pool.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;

@@ -6,6 +6,7 @@ public class Component {
     private String description;
     private int orderNumber;
 
+
     public Component(int ingredientID, String ingredientAmount, String description, int orderNumber) {
         this.ingredientID = ingredientID;
         this.ingredientAmount = ingredientAmount;
