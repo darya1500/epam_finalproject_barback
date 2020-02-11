@@ -41,7 +41,7 @@
                     </tr>
                     <tr>
                       <td><label><fmt:message key="label.description" />:</label></td>
-                      <td><input type="description" name="description" /></td>
+                      <td><input type="text" name="description" /></td>
                      </tr>
 					<tr>
 						<td><label></label></td>
@@ -59,14 +59,3 @@
    <jsp:include page="/views/myfooter.html"/>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
