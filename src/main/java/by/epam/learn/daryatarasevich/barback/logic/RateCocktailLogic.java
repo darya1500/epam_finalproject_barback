@@ -1,12 +1,11 @@
 package by.epam.learn.daryatarasevich.barback.logic;
 
 import by.epam.learn.daryatarasevich.barback.dao.RatingDAO;
-import by.epam.learn.daryatarasevich.barback.entities.Cocktail;
-import by.epam.learn.daryatarasevich.barback.entities.User;
+import by.epam.learn.daryatarasevich.barback.entity.Cocktail;
+import by.epam.learn.daryatarasevich.barback.entity.User;
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import by.epam.learn.daryatarasevich.barback.exception.RatingErrorException;
-import by.epam.learn.daryatarasevich.barback.utils.AppUtils;
-import by.epam.learn.daryatarasevich.barback.validation.LoginValidation;
+import by.epam.learn.daryatarasevich.barback.util.AppUtils;
 import by.epam.learn.daryatarasevich.barback.validation.RatingValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

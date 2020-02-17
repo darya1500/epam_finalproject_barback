@@ -5,8 +5,7 @@
               http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1"
          metadata-complete="true">
-
-    <display-name>Barback</display-name>
+<display-name>Barback</display-name>
     <!--security filter-->
     <filter>
         <filter-name>SecurityFilter</filter-name>
@@ -40,20 +39,20 @@
     <!-- error pages -->
     <error-page>
         <error-code>404</error-code>
-        <location>/views/error.jsp</location>
+        <location>/WEB-INF/error.jsp</location>
     </error-page>
     <error-page>
         <exception-type>java.lang.RuntimeException</exception-type>
-        <location>/views/error.jsp</location>
+        <location>/WEB-INF/error.jsp</location>
     </error-page>
     <error-page>
         <error-code>500</error-code>
-        <location>/views/error.jsp</location>
+        <location>/WEB-INF/error.jsp</location>
     </error-page>
     <!-- controller servlet -->
     <servlet>
         <servlet-name>controller</servlet-name>
-        <servlet-class>by.epam.learn.daryatarasevich.barback.controller.Controller</servlet-class>
+        <servlet-class>by.epam.learn.daryatarasevich.barback.controller.ControllerServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>controller</servlet-name>
@@ -62,7 +61,7 @@
     <!-- login jsp -->
     <servlet>
         <servlet-name>LoginPage</servlet-name>
-        <jsp-file>/views/login.jsp</jsp-file>
+        <jsp-file>/WEB-INF/login.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginPage</servlet-name>
@@ -71,7 +70,7 @@
     <!-- add bartender jsp -->
     <servlet>
         <servlet-name>AddBartenderForm</servlet-name>
-        <jsp-file>/views/administrator/addbartenderform.jsp</jsp-file>
+        <jsp-file>/WEB-INF/administrator/addbartenderform.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddBartenderForm</servlet-name>
@@ -80,7 +79,7 @@
     <!-- add cocktail jsp -->
     <servlet>
         <servlet-name>AddCocktailForm</servlet-name>
-        <jsp-file>/views/administrator/addcocktailform.jsp</jsp-file>
+        <jsp-file>/WEB-INF/administrator/addcocktailform.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddCocktailForm</servlet-name>
@@ -88,17 +87,17 @@
     </servlet-mapping>
     <!-- cocktail page jsp -->
     <servlet>
-        <servlet-name>CocktailPage</servlet-name>
-        <jsp-file>/views/cocktailpage.jsp</jsp-file>
+        <servlet-name>cocktailpage</servlet-name>
+        <jsp-file>/WEB-INF/cocktailpage.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
-        <servlet-name>CocktailPage</servlet-name>
+        <servlet-name>cocktailpage</servlet-name>
         <url-pattern>/cocktailpage</url-pattern>
     </servlet-mapping>
     <!-- add ingredient form jsp -->
     <servlet>
         <servlet-name>AddIngredientForm</servlet-name>
-        <jsp-file>/views/administrator/addingredientform.jsp</jsp-file>
+        <jsp-file>/WEB-INF/administrator/addingredientform.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddIngredientForm</servlet-name>
@@ -107,7 +106,7 @@
     <!-- add user form jsp -->
     <servlet>
         <servlet-name>AddUserForm</servlet-name>
-        <jsp-file>/views/administrator/adduserform.jsp</jsp-file>
+        <jsp-file>/WEB-INF/administrator/adduserform.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddUserForm</servlet-name>
@@ -116,7 +115,7 @@
     <!-- list of bartenders jsp -->
     <servlet>
         <servlet-name>ListOfBartenders</servlet-name>
-        <jsp-file>/views/administrator/listofbartenders.jsp</jsp-file>
+        <jsp-file>/WEB-INF/administrator/listofbartenders.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>ListOfBartenders</servlet-name>
@@ -125,7 +124,7 @@
     <!-- list of ingredients jsp -->
     <servlet>
         <servlet-name>ListOfIngredients</servlet-name>
-        <jsp-file>/views/administrator/listofingredients.jsp</jsp-file>
+        <jsp-file>/WEB-INF/administrator/listofingredients.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>ListOfIngredients</servlet-name>
@@ -134,7 +133,7 @@
     <!-- list of users jsp -->
     <servlet>
         <servlet-name>ListOfUsers</servlet-name>
-        <jsp-file>/views/administrator/listofusers.jsp</jsp-file>
+        <jsp-file>/WEB-INF/administrator/listofusers.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>ListOfUsers</servlet-name>
@@ -143,7 +142,7 @@
     <!-- update bartender form jsp -->
     <servlet>
         <servlet-name>UpdateBartenderForm</servlet-name>
-        <jsp-file>/views/administrator/updatebartenderform.jsp</jsp-file>
+        <jsp-file>/WEB-INF/administrator/updatebartenderform.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>UpdateBartenderForm</servlet-name>
@@ -152,7 +151,7 @@
     <!-- update cocktail form jsp -->
     <servlet>
         <servlet-name>UpdateCocktailForm</servlet-name>
-        <jsp-file>/views/administrator/updatecocktailform.jsp</jsp-file>
+        <jsp-file>/WEB-INF/administrator/updatecocktailform.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>UpdateCocktailForm</servlet-name>
@@ -161,7 +160,7 @@
     <!-- update ingredient form jsp -->
     <servlet>
         <servlet-name>UpdateIngredientForm</servlet-name>
-        <jsp-file>/views/administrator/updateingredientform.jsp</jsp-file>
+        <jsp-file>/WEB-INF/administrator/updateingredientform.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>UpdateIngredientForm</servlet-name>
@@ -170,7 +169,7 @@
     <!-- update user form jsp -->
     <servlet>
         <servlet-name>UpdateUserForm</servlet-name>
-        <jsp-file>/views/administrator/updateuserform.jsp</jsp-file>
+        <jsp-file>/WEB-INF/administrator/updateuserform.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>UpdateUserForm</servlet-name>
@@ -179,7 +178,7 @@
     <!-- delete account jsp -->
     <servlet>
         <servlet-name>DeleteAccount</servlet-name>
-        <jsp-file>/views/deleteaccount.jsp</jsp-file>
+        <jsp-file>/WEB-INF/deleteaccount.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>DeleteAccount</servlet-name>
@@ -188,7 +187,7 @@
     <!-- error page jsp -->
     <servlet>
         <servlet-name>ErrorPage</servlet-name>
-        <jsp-file>/views/error.jsp</jsp-file>
+        <jsp-file>/WEB-INF/error.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>ErrorPage</servlet-name>
@@ -197,7 +196,7 @@
     <!-- help page jsp -->
     <servlet>
         <servlet-name>HelpPage</servlet-name>
-        <jsp-file>/views/help.jsp</jsp-file>
+        <jsp-file>/WEB-INF/help.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>HelpPage</servlet-name>
@@ -206,7 +205,7 @@
     <!-- list of cocktails jsp -->
     <servlet>
         <servlet-name>ListOfCocktails</servlet-name>
-        <jsp-file>/views/listofcocktails.jsp</jsp-file>
+        <jsp-file>/WEB-INF/listofcocktails.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>ListOfCocktails</servlet-name>
@@ -215,7 +214,7 @@
     <!-- main jsp -->
     <servlet>
         <servlet-name>Main</servlet-name>
-        <jsp-file>/views/main.jsp</jsp-file>
+        <jsp-file>/WEB-INF/main.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>Main</servlet-name>
@@ -224,7 +223,7 @@
     <!-- register jsp -->
     <servlet>
         <servlet-name>Register</servlet-name>
-        <jsp-file>/views/register.jsp</jsp-file>
+        <jsp-file>/WEB-INF/register.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>Register</servlet-name>
@@ -233,7 +232,7 @@
     <!-- cocktail to approve jsp -->
     <servlet>
         <servlet-name>cocktailtoapprovepage</servlet-name>
-        <jsp-file>/views/administrator/cocktailtoapprovepage.jsp</jsp-file>
+        <jsp-file>/WEB-INF/administrator/cocktailtoapprovepage.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>cocktailtoapprovepage</servlet-name>
@@ -251,7 +250,7 @@
     <!-- listofsuggestedcocktails jsp -->
     <servlet>
         <servlet-name>listofsuggestedcocktails</servlet-name>
-        <jsp-file>/views/listofsuggestedcocktails.jsp</jsp-file>
+        <jsp-file>/WEB-INF/listofsuggestedcocktails.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>listofsuggestedcocktails</servlet-name>
@@ -260,7 +259,7 @@
     <!-- suggest cocktail jsp -->
     <servlet>
         <servlet-name>suggestcocktail</servlet-name>
-        <jsp-file>/views/suggestcocktail.jsp</jsp-file>
+        <jsp-file>/WEB-INF/suggestcocktail.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>suggestcocktail</servlet-name>
@@ -269,7 +268,7 @@
     <!-- create cocktail jsp -->
     <servlet>
         <servlet-name>createcocktail</servlet-name>
-        <jsp-file>/views/bartender/createcocktail.jsp</jsp-file>
+        <jsp-file>/WEB-INF/bartender/createcocktail.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>createcocktail</servlet-name>
@@ -278,11 +277,38 @@
     <!-- list of created cocktails jsp -->
     <servlet>
         <servlet-name>listofcreatedcocktails</servlet-name>
-        <jsp-file>/views/bartender/listofcreatedcocktails.jsp</jsp-file>
+        <jsp-file>/WEB-INF/bartender/listofcreatedcocktails.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>listofcreatedcocktails</servlet-name>
         <url-pattern>/listofcreatedcocktails</url-pattern>
+    </servlet-mapping>
+    <!-- who needs help -->
+    <servlet>
+        <servlet-name>whoneedshelp</servlet-name>
+        <jsp-file>/WEB-INF/administrator/whoneedshelp.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>whoneedshelp</servlet-name>
+        <url-pattern>/whoneedshelp</url-pattern>
+    </servlet-mapping>
+    <!--users to change status -->
+    <servlet>
+        <servlet-name>userstochangestatus</servlet-name>
+        <jsp-file>/WEB-INF/administrator/userstochangestatus.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>userstochangestatus</servlet-name>
+        <url-pattern>/userstochangestatus</url-pattern>
+    </servlet-mapping>
+    <!--list of cocktails to approve -->
+    <servlet>
+        <servlet-name>listofcocktailstoapprove</servlet-name>
+        <jsp-file>/WEB-INF/administrator/listofcocktailstoapprove.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>listofcocktailstoapprove</servlet-name>
+        <url-pattern>/listofcocktailstoapprove</url-pattern>
     </servlet-mapping>
     <!--session lifespan-->
     <session-config>

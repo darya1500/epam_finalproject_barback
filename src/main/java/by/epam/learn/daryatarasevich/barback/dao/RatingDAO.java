@@ -56,7 +56,6 @@ public class RatingDAO extends DAO {
                 rated = true;
             }
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         }
         return rated;
@@ -77,7 +76,6 @@ public class RatingDAO extends DAO {
             myStmt.setInt(4, Integer.parseInt(star));
             myStmt.execute();
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, null);
@@ -107,7 +105,6 @@ public class RatingDAO extends DAO {
             }
         } catch (SQLException | ConnectionPoolException e) {
             LOGGER.error(MessageManager.getProperty("message.exceptionindatabase"));
-            e.printStackTrace();
         } finally {
             close(myConn, myStmt, myRs);
         }
@@ -130,7 +127,6 @@ public class RatingDAO extends DAO {
                 ratings.add(rate);
             }
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, myRs);

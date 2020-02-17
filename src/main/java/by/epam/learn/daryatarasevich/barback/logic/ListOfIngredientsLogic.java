@@ -1,11 +1,11 @@
 package by.epam.learn.daryatarasevich.barback.logic;
 
 import by.epam.learn.daryatarasevich.barback.dao.IngredientDAO;
-import by.epam.learn.daryatarasevich.barback.entities.Cocktail;
-import by.epam.learn.daryatarasevich.barback.entities.Component;
-import by.epam.learn.daryatarasevich.barback.entities.Ingredient;
+import by.epam.learn.daryatarasevich.barback.entity.Cocktail;
+import by.epam.learn.daryatarasevich.barback.entity.Component;
+import by.epam.learn.daryatarasevich.barback.entity.Ingredient;
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
-import by.epam.learn.daryatarasevich.barback.validation.Validation;
+import by.epam.learn.daryatarasevich.barback.validation.CommonValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +19,7 @@ public class ListOfIngredientsLogic {
     private final static String INGREDIENT_NAME_RU = "ingredientNameRU";
     private final static String IS_ALCOHOL = "isAlcohol";
     private final static String INGREDIENT_ID="ingredientID";
-    Validation validation=new Validation();
+    CommonValidator commonValidator =new CommonValidator();
     /**
      * To get all ingredients from database.
      *
@@ -37,7 +37,7 @@ public class ListOfIngredientsLogic {
      */
     public void addIngredient(HttpServletRequest request) {
         String ingredientNameEN = request.getParameter(INGREDIENT_NAME_EN);
-        boolean validated=validation.validateIngredient(ingredientNameEN);
+        boolean validated= commonValidator.validateIngredient(ingredientNameEN);
         if (validated){
             String ingredientNameRU = request.getParameter(INGREDIENT_NAME_RU);
             String isAlc = request.getParameter(IS_ALCOHOL);
@@ -75,7 +75,7 @@ public class ListOfIngredientsLogic {
     public void updateIngredient(HttpServletRequest request) {
         int ingredientID = Integer.parseInt(request.getParameter(INGREDIENT_ID));
         String ingredientNameEN = request.getParameter(INGREDIENT_NAME_EN);
-        boolean validated=validation.validateIngredient(ingredientNameEN);
+        boolean validated= commonValidator.validateIngredient(ingredientNameEN);
         if (validated) {
             String ingredientNameRU = request.getParameter(INGREDIENT_NAME_RU);
             boolean isAction = false;

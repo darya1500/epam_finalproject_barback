@@ -5,7 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class RatingValidator {
-    private static final Logger LOGGER = LogManager.getLogger(LoginValidation.class);
+    private static final Logger LOGGER = LogManager.getLogger(LoginValidator.class);
 
     public boolean validate(String star, String cocktailID, String authorID) {
         boolean validated=true;

@@ -2,8 +2,8 @@ package by.epam.learn.daryatarasevich.barback.command;
 
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import by.epam.learn.daryatarasevich.barback.logic.HelpLogic;
-import by.epam.learn.daryatarasevich.barback.validation.HelpValidation;
-import by.epam.learn.daryatarasevich.barback.validation.RegisterValidation;
+import by.epam.learn.daryatarasevich.barback.validation.HelpValidator;
+import by.epam.learn.daryatarasevich.barback.validation.RegisterValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 public class HelpCommand implements ActionCommand {
     HelpLogic helpLogic=new HelpLogic();
     private static final Logger LOGGER = LogManager.getLogger(HelpCommand.class);
-    HelpValidation helpValidation=new HelpValidation();
-    RegisterValidation registerValidation=new RegisterValidation();
+    HelpValidator helpValidator =new HelpValidator();
+    RegisterValidator registerValidator =new RegisterValidator();
 
     @Override
     public String execute(HttpServletRequest request) {
@@ -20,9 +20,9 @@ public class HelpCommand implements ActionCommand {
         String name = request.getParameter ("name");
         String email = request.getParameter ("email");
         String message = request.getParameter ("message");
-        boolean validated=helpValidation.validate(email,name,message);
+        boolean validated= helpValidator.validate(email,name,message);
         if (validated){
-            boolean validatedEmail=registerValidation.validateEmail(email);
+            boolean validatedEmail= registerValidator.validateEmail(email);
             if (validatedEmail){
                 helpLogic.send(name,email,message);
                 request.setAttribute ("defaultMessage", MessageManager.getProperty("message.messagesent"));

@@ -1,14 +1,13 @@
 package by.epam.learn.daryatarasevich.barback.dao;
 
-import by.epam.learn.daryatarasevich.barback.entities.*;
+import by.epam.learn.daryatarasevich.barback.entity.*;
 import by.epam.learn.daryatarasevich.barback.exception.ConnectionPoolException;
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import by.epam.learn.daryatarasevich.barback.exception.NoSuchIngredientsException;
 import by.epam.learn.daryatarasevich.barback.pool.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import javax.naming.Context;
-import javax.naming.InitialContext;
+
 import javax.naming.NamingException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -68,7 +67,6 @@ public class CocktailDAO extends DAO<Cocktail> {
             cocktails.add(tempCocktail);
             return cocktails;
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, myRs);
@@ -88,7 +86,6 @@ public class CocktailDAO extends DAO<Cocktail> {
             myStmt.setInt(1, cocktailID);
             myStmt.execute();
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, null);
@@ -131,7 +128,6 @@ public class CocktailDAO extends DAO<Cocktail> {
             }
             cocktail = tempCocktail;
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         }  finally {
             close(myConn, myStmt, myRs);
@@ -158,8 +154,10 @@ public class CocktailDAO extends DAO<Cocktail> {
             myStmt.setString(2, theCocktail.getNameRU());
             myStmt.setInt(3, theCocktail.getId());
             myStmt.execute();
-        } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            LOGGER.error(MessageManager.getProperty("message.sqlexception"));
+        } catch (ConnectionPoolException e) {
+            LOGGER.error(MessageManager.getProperty("message.connectionpoolexception"));
         } finally {
             close(myConn, myStmt, null);
         }
@@ -181,7 +179,6 @@ public class CocktailDAO extends DAO<Cocktail> {
                 myStmt2.execute();
             }
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn2, myStmt2, null);
@@ -221,7 +218,6 @@ public class CocktailDAO extends DAO<Cocktail> {
                 myStmt.execute();
             }
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, null);
@@ -256,10 +252,8 @@ public class CocktailDAO extends DAO<Cocktail> {
             }
             return theIngredient;
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } catch (NoSuchIngredientsException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.couldnotfindingredientname") + ingredientNameEN);
         } finally {
             close(myConn, myStmt, myRs);
@@ -282,7 +276,6 @@ public class CocktailDAO extends DAO<Cocktail> {
             myStmt.setBoolean(4, false);
             myStmt.execute();
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, null);
@@ -304,7 +297,6 @@ public class CocktailDAO extends DAO<Cocktail> {
                 isregistered = true;
             }
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         }  finally {
             close(myConn, myStmt, myRs);
@@ -355,7 +347,6 @@ public class CocktailDAO extends DAO<Cocktail> {
             }
             return cocktails;
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, myRs);
@@ -389,7 +380,6 @@ public class CocktailDAO extends DAO<Cocktail> {
                 myStmt.execute();
             }
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, null);
@@ -413,7 +403,6 @@ public class CocktailDAO extends DAO<Cocktail> {
             }
                 result = Collections.max(values);
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, myRs);
@@ -436,13 +425,8 @@ public class CocktailDAO extends DAO<Cocktail> {
                 int x = myRs.getInt("cocktailID");
                 values.add(x);
             }
-            try {
                 result = Collections.max(values);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, myRs);
@@ -478,7 +462,6 @@ public class CocktailDAO extends DAO<Cocktail> {
                 myStmt.execute();
             }
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, null);

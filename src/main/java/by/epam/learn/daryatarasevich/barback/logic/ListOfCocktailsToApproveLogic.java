@@ -1,7 +1,7 @@
 package by.epam.learn.daryatarasevich.barback.logic;
 
 import by.epam.learn.daryatarasevich.barback.dao.SuggestedCocktailDAO;
-import by.epam.learn.daryatarasevich.barback.entities.Cocktail;
+import by.epam.learn.daryatarasevich.barback.entity.Cocktail;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 

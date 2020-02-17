@@ -1,6 +1,6 @@
 package by.epam.learn.daryatarasevich.barback.command;
 
-import by.epam.learn.daryatarasevich.barback.entities.Ingredient;
+import by.epam.learn.daryatarasevich.barback.entity.Ingredient;
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import by.epam.learn.daryatarasevich.barback.logic.ListOfIngredientsLogic;
 import org.apache.logging.log4j.LogManager;
@@ -21,11 +21,6 @@ public class ListOfIngredientsCommand implements ActionCommand {
             theOperation = "LIST";
         }
         switch (theOperation) {
-            case "LIST":
-                ingredients = listOfIngredientsLogic.listIngredients(request);
-                request.setAttribute("INGREDIENTS", ingredients);
-                page = ConfigurationManager.getProperty("path.page.listofuingredients.list");
-                break;
             case "ADD":
                 try {
                     listOfIngredientsLogic.addIngredient(request);
@@ -67,6 +62,7 @@ public class ListOfIngredientsCommand implements ActionCommand {
                 request.setAttribute("INGREDIENTS", ingredients);
                 page = ConfigurationManager.getProperty("path.page.listofuingredients.list");
                 break;
+            case "LIST":
             default:
                 ingredients = listOfIngredientsLogic.listIngredients(request);
                 request.setAttribute("INGREDIENTS", ingredients);

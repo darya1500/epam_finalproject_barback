@@ -8,4 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 
 public interface ActionCommand {
     String execute(HttpServletRequest request) throws NoSuchUserException, IncorrectPasswordException, NamingException, IngredientDBException;
+
+    default boolean requiresRedirect() {
+        return false;
+    }
 }

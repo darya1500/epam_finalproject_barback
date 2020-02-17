@@ -1,8 +1,8 @@
 package by.epam.learn.daryatarasevich.barback.filter;
 
-import by.epam.learn.daryatarasevich.barback.entities.User;
-import by.epam.learn.daryatarasevich.barback.utils.AppUtils;
-import by.epam.learn.daryatarasevich.barback.utils.SecurityUtils;
+import by.epam.learn.daryatarasevich.barback.entity.User;
+import by.epam.learn.daryatarasevich.barback.util.AppUtils;
+import by.epam.learn.daryatarasevich.barback.util.SecurityUtils;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

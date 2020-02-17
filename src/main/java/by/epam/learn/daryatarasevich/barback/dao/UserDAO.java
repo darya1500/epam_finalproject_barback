@@ -1,7 +1,7 @@
 package by.epam.learn.daryatarasevich.barback.dao;
 
-import by.epam.learn.daryatarasevich.barback.entities.Status;
-import by.epam.learn.daryatarasevich.barback.entities.User;
+import by.epam.learn.daryatarasevich.barback.entity.Status;
+import by.epam.learn.daryatarasevich.barback.entity.User;
 import by.epam.learn.daryatarasevich.barback.exception.ConnectionPoolException;
 import by.epam.learn.daryatarasevich.barback.exception.InvalidStatusException;
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
@@ -42,7 +42,6 @@ public class UserDAO extends DAO<User> {
             myStmt.setString(6, theUser.getDescription());
             myStmt.execute();
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, null);
@@ -72,7 +71,6 @@ public class UserDAO extends DAO<User> {
             }
             return userList;
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
             return userList;
         } finally {
@@ -98,7 +96,6 @@ public class UserDAO extends DAO<User> {
             myStmt.setInt(6, theUser.getId());
             myStmt.execute();
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, null);
@@ -117,7 +114,6 @@ public class UserDAO extends DAO<User> {
             myStmt.setInt(1, userID);
             myStmt.execute();
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, null);
@@ -165,9 +161,7 @@ public class UserDAO extends DAO<User> {
             }
         } catch (SQLException | ConnectionPoolException e) {
             LOGGER.error(MessageManager.getProperty("message.exceptionindatabase"));
-            e.printStackTrace();
         } catch (NoSuchUserException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.couldnotfinduserid"));
         } finally {
             close(myConn, myStmt, myRs);
@@ -211,10 +205,8 @@ public class UserDAO extends DAO<User> {
             }
             return result;
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } catch (InvalidStatusException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.invalidstatusexception"));
         } finally {
             close(myConn, myStmt, myRs);
@@ -237,7 +229,6 @@ public class UserDAO extends DAO<User> {
                 result = true;
             }
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         }
         return result;
@@ -266,7 +257,6 @@ public class UserDAO extends DAO<User> {
             }
             return user;
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, myRs);
@@ -296,7 +286,6 @@ public class UserDAO extends DAO<User> {
             }
             return bartenderList;
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, myRs);
@@ -321,7 +310,6 @@ public class UserDAO extends DAO<User> {
             myStmt.setString(6, theUser.getDescription());
             myStmt.execute();
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, myRs);
@@ -347,7 +335,6 @@ public class UserDAO extends DAO<User> {
             myStmt.setInt(2, userID);
             myStmt.execute();
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, null);
@@ -386,9 +373,7 @@ public class UserDAO extends DAO<User> {
             }
         } catch (SQLException | ConnectionPoolException e) {
             LOGGER.error(MessageManager.getProperty("message.exceptionindatabase"));
-            e.printStackTrace();
         } catch (NoSuchUserException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.couldnotfindusername"));
         } finally {
             close(myConn, myStmt, myRs);

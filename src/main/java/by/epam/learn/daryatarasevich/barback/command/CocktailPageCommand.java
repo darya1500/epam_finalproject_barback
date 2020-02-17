@@ -1,8 +1,8 @@
 package by.epam.learn.daryatarasevich.barback.command;
 
-import by.epam.learn.daryatarasevich.barback.entities.Cocktail;
-import by.epam.learn.daryatarasevich.barback.entities.Ingredient;
-import by.epam.learn.daryatarasevich.barback.entities.User;
+import by.epam.learn.daryatarasevich.barback.entity.Cocktail;
+import by.epam.learn.daryatarasevich.barback.entity.Ingredient;
+import by.epam.learn.daryatarasevich.barback.entity.User;
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import by.epam.learn.daryatarasevich.barback.logic.*;
 import org.apache.logging.log4j.LogManager;

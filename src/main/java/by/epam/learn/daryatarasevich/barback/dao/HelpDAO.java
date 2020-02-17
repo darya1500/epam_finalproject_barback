@@ -1,14 +1,19 @@
 package by.epam.learn.daryatarasevich.barback.dao;
 
-import by.epam.learn.daryatarasevich.barback.entities.Help;
-import by.epam.learn.daryatarasevich.barback.entities.HelpStatus;
+import by.epam.learn.daryatarasevich.barback.entity.Help;
+import by.epam.learn.daryatarasevich.barback.entity.HelpStatus;
 import by.epam.learn.daryatarasevich.barback.exception.ConnectionPoolException;
+import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import by.epam.learn.daryatarasevich.barback.pool.ConnectionPool;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class HelpDAO extends DAO<Help> {
+    private static final Logger LOGGER = LogManager.getLogger(HelpDAO.class);
 
     public void add(String name, String email, String message) {
         Connection myConn = null;
@@ -21,8 +26,10 @@ public class HelpDAO extends DAO<Help> {
             myStmt.setString(2, email);
             myStmt.setString(3, message);
             myStmt.execute();
-        } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
+        } catch (SQLException  e) {
+            LOGGER.error(MessageManager.getProperty("message.sqlexception"));
+        } catch (ConnectionPoolException e) {
+            LOGGER.error(MessageManager.getProperty("message.connectionpoolexception"));
         } finally {
             close(myConn, myStmt, null);
         }
@@ -64,8 +71,10 @@ public class HelpDAO extends DAO<Help> {
                 list.add(tempHelp);
             }
             return list;
-        } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            LOGGER.error(MessageManager.getProperty("message.sqlexception"));
+        } catch (ConnectionPoolException e) {
+            LOGGER.error(MessageManager.getProperty("message.connectionpoolexception"));
         } finally {
             close(myConn, myStmt, myRs);
         }
@@ -93,8 +102,10 @@ public class HelpDAO extends DAO<Help> {
             myStmt = myConn.prepareStatement(sql);
             myStmt.setInt(1, id);
             myStmt.execute();
-        } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
+        } catch (SQLException  e) {
+            LOGGER.error(MessageManager.getProperty("message.sqlexception"));
+        } catch (ConnectionPoolException e) {
+            LOGGER.error(MessageManager.getProperty("message.connectionpoolexception"));
         } finally {
             close(myConn, myStmt, null);
         }

@@ -1,6 +1,6 @@
 package by.epam.learn.daryatarasevich.barback.command;
 
-import by.epam.learn.daryatarasevich.barback.entities.User;
+import by.epam.learn.daryatarasevich.barback.entity.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.jstl.core.Config;

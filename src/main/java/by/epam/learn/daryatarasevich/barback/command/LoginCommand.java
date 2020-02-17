@@ -1,11 +1,11 @@
 package by.epam.learn.daryatarasevich.barback.command;
 
-import by.epam.learn.daryatarasevich.barback.entities.User;
+import by.epam.learn.daryatarasevich.barback.entity.User;
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import by.epam.learn.daryatarasevich.barback.logic.ClientType;
-import by.epam.learn.daryatarasevich.barback.utils.AppUtils;
+import by.epam.learn.daryatarasevich.barback.util.AppUtils;
 import by.epam.learn.daryatarasevich.barback.logic.LoginLogic;
-import by.epam.learn.daryatarasevich.barback.validation.LoginValidation;
+import by.epam.learn.daryatarasevich.barback.validation.LoginValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 public class LoginCommand implements ActionCommand {
     private LoginLogic loginLogic=new LoginLogic();
-    LoginValidation loginValidation=new LoginValidation();
+    LoginValidator loginValidator =new LoginValidator();
     private static final Logger LOGGER = LogManager.getLogger(LoginCommand.class);
     /**
      * To login user.
@@ -29,7 +29,7 @@ public class LoginCommand implements ActionCommand {
         String page = null;
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        boolean validated=loginValidation.validate(email,password);
+        boolean validated= loginValidator.validate(email,password);
         if (validated) {
             User user = loginLogic.check(email, password);
             ClientType clientType = loginLogic.checkRole(email, password);
@@ -49,5 +49,10 @@ public class LoginCommand implements ActionCommand {
             page = ConfigurationManager.getProperty("path.page.login");
         }
         return page;
+    }
+
+    @Override
+    public boolean requiresRedirect() {
+        return true;
     }
 }

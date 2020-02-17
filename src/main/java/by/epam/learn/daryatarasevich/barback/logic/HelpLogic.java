@@ -1,7 +1,7 @@
 package by.epam.learn.daryatarasevich.barback.logic;
 
 import by.epam.learn.daryatarasevich.barback.dao.HelpDAO;
-import by.epam.learn.daryatarasevich.barback.entities.Help;
+import by.epam.learn.daryatarasevich.barback.entity.Help;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;

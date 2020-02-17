@@ -2,13 +2,13 @@ package by.epam.learn.daryatarasevich.barback.logic;
 
 import by.epam.learn.daryatarasevich.barback.dao.CocktailDAO;
 import by.epam.learn.daryatarasevich.barback.dao.IngredientDAO;
-import by.epam.learn.daryatarasevich.barback.entities.Cocktail;
-import by.epam.learn.daryatarasevich.barback.entities.Component;
-import by.epam.learn.daryatarasevich.barback.entities.Ingredient;
-import by.epam.learn.daryatarasevich.barback.entities.User;
+import by.epam.learn.daryatarasevich.barback.entity.Cocktail;
+import by.epam.learn.daryatarasevich.barback.entity.Component;
+import by.epam.learn.daryatarasevich.barback.entity.Ingredient;
+import by.epam.learn.daryatarasevich.barback.entity.User;
 import by.epam.learn.daryatarasevich.barback.exception.IngredientDBException;
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
-import by.epam.learn.daryatarasevich.barback.validation.Validation;
+import by.epam.learn.daryatarasevich.barback.validation.CommonValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
@@ -27,7 +27,7 @@ public class CreateCocktailLogic {
     private final static String AMOUNT="amount";
     private final static String DESCRIPTION="description";
     private final static String IS_ALCOHOL="isAlcohol";
-    Validation validation=new Validation();
+    CommonValidator commonValidator =new CommonValidator();
 
     public void addCocktail(Cocktail cocktail) {
         cocktailDAO.add(cocktail);
@@ -43,7 +43,7 @@ public class CreateCocktailLogic {
         User user = (User) request.getSession().getAttribute(LOGED_USER);
         Cocktail cocktail = null;
         String nameEN = request.getParameter(NAME_EN);
-        boolean validated=validation.validateCocktail(nameEN);
+        boolean validated= commonValidator.validateCocktail(nameEN);
         if (validated){
             String nameRU = request.getParameter(NAME_RU);
             List<Component> components = new ArrayList<>();

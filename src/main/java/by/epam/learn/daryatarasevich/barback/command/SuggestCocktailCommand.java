@@ -1,6 +1,6 @@
 package by.epam.learn.daryatarasevich.barback.command;
 
-import by.epam.learn.daryatarasevich.barback.entities.Cocktail;
+import by.epam.learn.daryatarasevich.barback.entity.Cocktail;
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import by.epam.learn.daryatarasevich.barback.logic.SuggestCocktailLogic;
 import org.apache.logging.log4j.LogManager;

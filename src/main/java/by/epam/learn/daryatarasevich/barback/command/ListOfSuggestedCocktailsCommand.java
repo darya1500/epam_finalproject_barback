@@ -1,6 +1,6 @@
 package by.epam.learn.daryatarasevich.barback.command;
 
-import by.epam.learn.daryatarasevich.barback.entities.Cocktail;
+import by.epam.learn.daryatarasevich.barback.entity.Cocktail;
 import by.epam.learn.daryatarasevich.barback.exception.IncorrectPasswordException;
 import by.epam.learn.daryatarasevich.barback.exception.NoSuchUserException;
 import by.epam.learn.daryatarasevich.barback.logic.ListOfCocktailsLogic;

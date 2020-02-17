@@ -1,6 +1,6 @@
 package by.epam.learn.daryatarasevich.barback.dao;
 
-import by.epam.learn.daryatarasevich.barback.entities.Ingredient;
+import by.epam.learn.daryatarasevich.barback.entity.Ingredient;
 import by.epam.learn.daryatarasevich.barback.exception.*;
 import by.epam.learn.daryatarasevich.barback.pool.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
@@ -34,7 +34,6 @@ public class IngredientDAO extends DAO<Ingredient> {
             myStmt.setBoolean(4, theIngredient.isAction());
             myStmt.execute();
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, null);
@@ -58,7 +57,6 @@ public class IngredientDAO extends DAO<Ingredient> {
             myStmt.setInt(5, theIngredient.getId());
             myStmt.execute();
         } catch (ConnectionPoolException | SQLException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, null);
@@ -77,7 +75,6 @@ public class IngredientDAO extends DAO<Ingredient> {
             myStmt.setInt(1, ingredientID);
             myStmt.execute();
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, null);
@@ -106,7 +103,6 @@ public class IngredientDAO extends DAO<Ingredient> {
             }
             return ingredientList;
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, myRs);
@@ -145,7 +141,6 @@ public class IngredientDAO extends DAO<Ingredient> {
             }
         } catch (SQLException | ConnectionPoolException | NoSuchIngredientsException e) {
             LOGGER.error(MessageManager.getProperty("message.exceptionindatabase"));
-            e.printStackTrace();
         } finally {
             close(myConn, myStmt, myRs);
         }
@@ -177,10 +172,8 @@ public class IngredientDAO extends DAO<Ingredient> {
             }
             return theIngredient;
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } catch (IngredientDAOException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.couldnotfindingredient"));
         } finally {
             close(myConn, myStmt, myRs);
@@ -214,7 +207,6 @@ public class IngredientDAO extends DAO<Ingredient> {
                 theIngredient = new Ingredient(ingredientID, ingredientNameEN, ingredientNameRU, alcohol, action);
             }
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, myRs);
@@ -239,10 +231,8 @@ public class IngredientDAO extends DAO<Ingredient> {
                 throw new IngredientDBException(MessageManager.getProperty("message.couldnotfindingredient") + ingredientName);
             }
         } catch (SQLException |  ConnectionPoolException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } catch (IngredientDBException e) {
-            e.printStackTrace();
             LOGGER.error(MessageManager.getProperty("message.couldnotfindingredient"));
         } finally {
             close(myConn, myStmt, myRs);

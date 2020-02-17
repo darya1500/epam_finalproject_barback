@@ -3,13 +3,13 @@ package by.epam.learn.daryatarasevich.barback.logic;
 import by.epam.learn.daryatarasevich.barback.dao.CocktailDAO;
 import by.epam.learn.daryatarasevich.barback.dao.IngredientDAO;
 import by.epam.learn.daryatarasevich.barback.dao.UserDAO;
-import by.epam.learn.daryatarasevich.barback.entities.Cocktail;
-import by.epam.learn.daryatarasevich.barback.entities.Component;
-import by.epam.learn.daryatarasevich.barback.entities.Ingredient;
-import by.epam.learn.daryatarasevich.barback.entities.User;
+import by.epam.learn.daryatarasevich.barback.entity.Cocktail;
+import by.epam.learn.daryatarasevich.barback.entity.Component;
+import by.epam.learn.daryatarasevich.barback.entity.Ingredient;
+import by.epam.learn.daryatarasevich.barback.entity.User;
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
-import by.epam.learn.daryatarasevich.barback.utils.AppUtils;
-import by.epam.learn.daryatarasevich.barback.validation.Validation;
+import by.epam.learn.daryatarasevich.barback.util.AppUtils;
+import by.epam.learn.daryatarasevich.barback.validation.CommonValidator;
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class ListOfCocktailsLogic {
     private CocktailDAO cocktailDAO = new CocktailDAO();
     IngredientDAO ingredientDAO=new IngredientDAO();
     UserDAO userDAO=new UserDAO();
-    Validation validation=new Validation();
+    CommonValidator commonValidator =new CommonValidator();
     private final static String COCKTAIL_NAME_EN="cocktailNameEN";
     private final static String COCKTAIL_NAME_RU="cocktailNameRU";
     private final static String COCKTAIL_ID="cocktailID";
@@ -54,7 +54,7 @@ public class ListOfCocktailsLogic {
     public void addCocktail(HttpServletRequest request) throws NamingException {
         int numberOfIngredients = Integer.parseInt(request.getParameter(NUMBER_OF_INGREDIENTS));
         String cocktailNameEN = request.getParameter(COCKTAIL_NAME_EN);
-        boolean validated=validation.validateCocktail(cocktailNameEN);
+        boolean validated= commonValidator.validateCocktail(cocktailNameEN);
         if (validated){
             String cocktailNameRU = request.getParameter(COCKTAIL_NAME_RU);
             User author = AppUtils.getLogedUser(request.getSession());
@@ -83,7 +83,7 @@ public class ListOfCocktailsLogic {
      */
     public Cocktail loadCocktail(HttpServletRequest request) {
         String theCocktailID = request.getParameter(COCKTAIL_ID);
-       boolean validated=validation.validateID(theCocktailID);
+       boolean validated= commonValidator.validateID(theCocktailID);
        if (validated){
            Cocktail theCocktail = cocktailDAO.getT(theCocktailID);
            return theCocktail;
@@ -124,7 +124,7 @@ public class ListOfCocktailsLogic {
             components.add(component);
         }
         String cocktailNameEN = request.getParameter(COCKTAIL_NAME_EN);
-        boolean validated=validation.validateCocktail(cocktailNameEN);
+        boolean validated= commonValidator.validateCocktail(cocktailNameEN);
         if (validated){
             String cocktailNameRU = request.getParameter(COCKTAIL_NAME_RU);
             int authorID = Integer.parseInt(request.getParameter(AUTHOR_ID));

@@ -1,7 +1,7 @@
 package by.epam.learn.daryatarasevich.barback.command;
 
-import by.epam.learn.daryatarasevich.barback.entities.Cocktail;
-import by.epam.learn.daryatarasevich.barback.entities.Ingredient;
+import by.epam.learn.daryatarasevich.barback.entity.Cocktail;
+import by.epam.learn.daryatarasevich.barback.entity.Ingredient;
 import by.epam.learn.daryatarasevich.barback.logic.ListOfCocktailsLogic;
 import by.epam.learn.daryatarasevich.barback.logic.ListOfCocktailsToApproveLogic;
 import by.epam.learn.daryatarasevich.barback.logic.ListOfIngredientsLogic;
@@ -27,11 +27,6 @@ public class ListOfCocktailsToApproveCommand implements ActionCommand {
             theOperation = "LIST";
         }
         switch (theOperation) {
-            case "LIST":
-                cocktails = listOfCocktailsToApproveLogic.listCocktails(request);
-                request.setAttribute("COCKTAILS", cocktails);
-                page = ConfigurationManager.getProperty("path.page.listofcocktailstoapprove");
-                break;
             case "APPROVE":
                 listOfCocktailsToApproveLogic.approveCocktail (request);
                 listOfCocktailsLogic=new ListOfCocktailsLogic();
@@ -52,6 +47,12 @@ public class ListOfCocktailsToApproveCommand implements ActionCommand {
                 break;
             case "DELETE":
                 listOfCocktailsToApproveLogic.deleteCocktail(request);
+                cocktails = listOfCocktailsToApproveLogic.listCocktails(request);
+                request.setAttribute("COCKTAILS", cocktails);
+                page = ConfigurationManager.getProperty("path.page.listofcocktailstoapprove");
+                break;
+            case "LIST":
+            default:
                 cocktails = listOfCocktailsToApproveLogic.listCocktails(request);
                 request.setAttribute("COCKTAILS", cocktails);
                 page = ConfigurationManager.getProperty("path.page.listofcocktailstoapprove");

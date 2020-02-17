@@ -1,16 +1,21 @@
 package by.epam.learn.daryatarasevich.barback.dao;
 
-import by.epam.learn.daryatarasevich.barback.entities.Cocktail;
-import by.epam.learn.daryatarasevich.barback.entities.Component;
-import by.epam.learn.daryatarasevich.barback.entities.User;
+import by.epam.learn.daryatarasevich.barback.entity.Cocktail;
+import by.epam.learn.daryatarasevich.barback.entity.Component;
+import by.epam.learn.daryatarasevich.barback.entity.User;
 import by.epam.learn.daryatarasevich.barback.exception.ConnectionPoolException;
+import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import by.epam.learn.daryatarasevich.barback.pool.ConnectionPool;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SuggestedCocktailDAO extends DAO<Cocktail> {
     UserDAO userDAO;
+    private static final Logger LOGGER = LogManager.getLogger(SuggestedCocktailDAO.class);
 
     @Override
     public void add(Cocktail cocktail) {
@@ -32,7 +37,7 @@ public class SuggestedCocktailDAO extends DAO<Cocktail> {
             myStmt.setInt(1, cocktailID);
             myStmt.execute();
         } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
+            LOGGER.error(MessageManager.getProperty("message.databaseerror"));
         } finally {
             close(myConn, myStmt, null);
         }
@@ -95,10 +100,10 @@ public class SuggestedCocktailDAO extends DAO<Cocktail> {
             cocktails.add(tempCocktail);
             return cocktails;
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.error(MessageManager.getProperty("message.sqlexception"));
             return cocktails;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (ConnectionPoolException e) {
+            LOGGER.error(MessageManager.getProperty("message.connectionpoolexception"));
         } finally {
             close(myConn, myStmt, myRs);
         }
@@ -138,8 +143,10 @@ public class SuggestedCocktailDAO extends DAO<Cocktail> {
             }
             cocktail = tempCocktail;
             return cocktail;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            LOGGER.error(MessageManager.getProperty("message.sqlexception"));
+        } catch (ConnectionPoolException e) {
+            LOGGER.error(MessageManager.getProperty("message.connectionpoolexception"));
         } finally {
             close(myConn, myStmt, myRs);
         }
@@ -157,8 +164,10 @@ public class SuggestedCocktailDAO extends DAO<Cocktail> {
             myStmt = myConn.prepareStatement(sql);
             myStmt.setInt(1, Integer.parseInt(theCocktailID));
             myStmt.execute();
-        } catch (SQLException | ConnectionPoolException e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            LOGGER.error(MessageManager.getProperty("message.sqlexception"));
+        } catch (ConnectionPoolException e) {
+            LOGGER.error(MessageManager.getProperty("message.connectionpoolexception"));
         } finally {
             close(myConn, myStmt, null);
         }

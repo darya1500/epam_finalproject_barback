@@ -1,6 +1,6 @@
 package by.epam.learn.daryatarasevich.barback.command;
 
-import by.epam.learn.daryatarasevich.barback.entities.Help;
+import by.epam.learn.daryatarasevich.barback.entity.Help;
 import by.epam.learn.daryatarasevich.barback.logic.HelpLogic;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

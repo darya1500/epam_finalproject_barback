@@ -1,8 +1,8 @@
 package by.epam.learn.daryatarasevich.barback.command;
 
-import by.epam.learn.daryatarasevich.barback.entities.Cocktail;
-import by.epam.learn.daryatarasevich.barback.entities.Ingredient;
-import by.epam.learn.daryatarasevich.barback.entities.User;
+import by.epam.learn.daryatarasevich.barback.entity.Cocktail;
+import by.epam.learn.daryatarasevich.barback.entity.Ingredient;
+import by.epam.learn.daryatarasevich.barback.entity.User;
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import by.epam.learn.daryatarasevich.barback.exception.RatingErrorException;
 import by.epam.learn.daryatarasevich.barback.logic.*;
@@ -51,7 +51,6 @@ public class RateCocktailCommand implements ActionCommand {
             try {
                 rateCocktailLogic.rate(request);
             } catch (RatingErrorException e) {
-                e.printStackTrace();
                 request.setAttribute("message", MessageManager.getProperty("message.errorrating"));
                 LOGGER.error(MessageManager.getProperty("message.errorrating"));
                 page = ConfigurationManager.getProperty("path.page.cocktailpage");

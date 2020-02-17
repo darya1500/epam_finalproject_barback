@@ -1,6 +1,6 @@
 package by.epam.learn.daryatarasevich.barback.command;
 
-import by.epam.learn.daryatarasevich.barback.entities.User;
+import by.epam.learn.daryatarasevich.barback.entity.User;
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import by.epam.learn.daryatarasevich.barback.logic.ListOfUsersLogic;
 import by.epam.learn.daryatarasevich.barback.logic.RateCocktailLogic;
@@ -26,19 +26,6 @@ public class ListOfUsersCommand implements ActionCommand {
             theOperation = "LIST";
         }
         switch (theOperation) {
-            case "LIST":
-                users = listOfUsersLogic.listUsers(request);
-                request.setAttribute("USERS", users);
-                userRatings = new ArrayList<>();
-                for (User user : users) {
-                    int userID = user.getId();
-                    double rating = rateCocktailLogic.getAuthorRating(userID);
-                    int userRate = (int) (rating * 20);
-                    userRatings.add(userRate);
-                }
-                request.setAttribute("USER_RATINGS", userRatings);
-                page = ConfigurationManager.getProperty("path.page.listofusers.list");
-                break;
             case "ADD":
                try {
                    listOfUsersLogic.addUser(request);
@@ -121,6 +108,7 @@ public class ListOfUsersCommand implements ActionCommand {
                 request.setAttribute("USER_RATINGS", userRatings);
                 page = ConfigurationManager.getProperty("path.page.listofusers.list");
                 break;
+            case "LIST":
             default:
                 users = listOfUsersLogic.listUsers(request);
                 request.setAttribute("USERS", users);

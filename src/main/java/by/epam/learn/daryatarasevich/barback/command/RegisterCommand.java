@@ -1,13 +1,13 @@
 package by.epam.learn.daryatarasevich.barback.command;
 
-import by.epam.learn.daryatarasevich.barback.entities.Status;
-import by.epam.learn.daryatarasevich.barback.entities.User;
+import by.epam.learn.daryatarasevich.barback.entity.Status;
+import by.epam.learn.daryatarasevich.barback.entity.User;
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import by.epam.learn.daryatarasevich.barback.logic.ClientType;
 import by.epam.learn.daryatarasevich.barback.logic.ListOfUsersLogic;
 import by.epam.learn.daryatarasevich.barback.logic.RegisterLogic;
-import by.epam.learn.daryatarasevich.barback.utils.AppUtils;
-import by.epam.learn.daryatarasevich.barback.validation.RegisterValidation;
+import by.epam.learn.daryatarasevich.barback.util.AppUtils;
+import by.epam.learn.daryatarasevich.barback.validation.RegisterValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +17,7 @@ public class RegisterCommand implements ActionCommand {
     private RegisterLogic registerLogic=new RegisterLogic();
     ListOfUsersLogic listOfUsersLogic=new ListOfUsersLogic();
     private static final Logger LOGGER = LogManager.getLogger(RegisterCommand.class);
-    RegisterValidation registerValidation=new RegisterValidation();
+    RegisterValidator registerValidator =new RegisterValidator();
     /**
      * To register user.
      * At first to validate data input from user.If it is correct to check if such user is already registered.
@@ -33,11 +33,11 @@ public class RegisterCommand implements ActionCommand {
         String email = request.getParameter ("email");
         String password = request.getParameter ("password");
         String userNameEN= request.getParameter ("userNameEN");
-        boolean validated=registerValidation.validate(email,password,userNameEN);
+        boolean validated= registerValidator.validate(email,password,userNameEN);
         if (validated) {
-            boolean validatedEmail=registerValidation.validateEmail(email);
+            boolean validatedEmail= registerValidator.validateEmail(email);
             if (validatedEmail){
-                boolean validatedPassword=registerValidation.validatePassword(password);
+                boolean validatedPassword= registerValidator.validatePassword(password);
                 if (validatedPassword){
                     String userNameRU = request.getParameter ("userNameRU");
                     String description = request.getParameter ("description");

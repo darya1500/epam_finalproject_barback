@@ -1,10 +1,10 @@
 package by.epam.learn.daryatarasevich.barback.logic;
 
 import by.epam.learn.daryatarasevich.barback.dao.UserDAO;
-import by.epam.learn.daryatarasevich.barback.entities.Status;
-import by.epam.learn.daryatarasevich.barback.entities.User;
+import by.epam.learn.daryatarasevich.barback.entity.Status;
+import by.epam.learn.daryatarasevich.barback.entity.User;
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
-import by.epam.learn.daryatarasevich.barback.validation.Validation;
+import by.epam.learn.daryatarasevich.barback.validation.CommonValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +19,7 @@ public class ListOfBartendersLogic {
     private final static String EMAIL = "email";
     private final static String PASSWORD = "password";
     private final static String USER_ID = "userID";
-    Validation validation=new Validation();
+    CommonValidator commonValidator =new CommonValidator();
     /**
      * To get all bartenders from database.
      *
@@ -39,7 +39,7 @@ public class ListOfBartendersLogic {
      */
     public void addBartender(HttpServletRequest request) {
         String userNameEN = request.getParameter(USER_NAME_EN);
-        boolean validated=validation.validateUser(userNameEN);
+        boolean validated= commonValidator.validateUser(userNameEN);
         if (validated){
             String userNameRU = request.getParameter(USER_NAME_RU);
             String email = request.getParameter(EMAIL);
@@ -70,7 +70,7 @@ public class ListOfBartendersLogic {
     public void updateBartender(HttpServletRequest request) {
         int userID = Integer.parseInt(request.getParameter(USER_ID));
         String userNameEN = request.getParameter(USER_NAME_EN);
-        boolean validated=validation.validateUser(userNameEN);
+        boolean validated= commonValidator.validateUser(userNameEN);
         if (validated){
             String userNameRU = request.getParameter(USER_NAME_RU);
             String email = request.getParameter(EMAIL);

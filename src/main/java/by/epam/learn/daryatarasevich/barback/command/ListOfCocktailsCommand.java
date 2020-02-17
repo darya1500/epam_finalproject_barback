@@ -1,6 +1,6 @@
 package by.epam.learn.daryatarasevich.barback.command;
 
-import by.epam.learn.daryatarasevich.barback.entities.Cocktail;
+import by.epam.learn.daryatarasevich.barback.entity.Cocktail;
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import by.epam.learn.daryatarasevich.barback.logic.ListOfCocktailsLogic;
 import by.epam.learn.daryatarasevich.barback.logic.RateCocktailLogic;
@@ -25,11 +25,6 @@ public class ListOfCocktailsCommand implements ActionCommand {
             theOperation = "LIST";
         }
         switch (theOperation) {
-            case "LIST":
-                cocktails=listOfCocktailsLogic.listCocktails (request);
-                request.setAttribute ("COCKTAILS", cocktails);
-                page = ConfigurationManager.getProperty("path.page.listofcocktails.list");
-                break;
             case "ADD":
                try {
                    listOfCocktailsLogic.addCocktail (request);
@@ -71,6 +66,7 @@ public class ListOfCocktailsCommand implements ActionCommand {
                 request.setAttribute ("COCKTAILS", cocktails);
                 page = ConfigurationManager.getProperty("path.page.listofcocktails.list");
                 break;
+            case "LIST":
             default:
                 cocktails=listOfCocktailsLogic.listCocktails (request);
                 request.setAttribute ("COCKTAILS", cocktails);
