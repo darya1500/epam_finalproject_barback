@@ -41,12 +41,11 @@ tr:nth-child(odd) {background:  #FFFFFF}
     font-weight: bold;
     width: 120px;
     padding: 5px 10px;
-
     margin-bottom: 15px;
     background: #cccccc;
 }
-.button22 {
-    background-color: #008CBA;
+.button {
+    background-color: #6a6a6a;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -55,5 +54,174 @@ tr:nth-child(odd) {background:  #FFFFFF}
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
+    cursor: pointer;
+}
+.button:hover {opacity: 1}
+input[type=submit] {
+    background-color: #ffffff;
+    border: none;
+    color: #0b013b;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
+.w3-bar-block .w3-bar-item {padding:20px}
+
+.btn-group .button {
+    background-color: rgba(225, 106, 251, 0);
+    border: none;
+    alignment: right;
+    color: #040404;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    float: right;
+    font-family: "Karma", sans-serif
+}
+.txt-center {
+    text-align: center;
+}
+.hide {
+    display: none;
+}
+.clear {
+    float: none;
+    clear: both;
+}
+.rating {
+    width: 90px;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+    position: relative;
+}
+.rating > label {
+    float: right;
+    display: inline;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 1.1em;
+    cursor: pointer;
+    color: #000;
+}
+.rating > label:hover,
+.rating > label:hover ~ label,
+.rating > input.radio-btn:checked ~ label {
+    color: transparent;
+}
+
+.rating > label:hover:before,
+.rating > label:hover ~ label:before,
+.rating > input.radio-btn:checked ~ label:before,
+.rating > input.radio-btn:checked ~ label:before {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    color: #FFD700;
+}
+#authortable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    alignment: left;
+    background-color: #dfb4b4;
+    color: white;
+    width:40% ;
+}
+#authortable tr {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    alignment: left;
+    background-color: #ffffff;
+    color: #040404;
+    width: 60%;
+}
+#cocktailtable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color:#b4dfdf;
+    color: white;
+    width: 60%;
+}
+#cocktailtable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    alignment: left;
+    background-color: #ffffff;
+    color: #040404;
+    width: 60%;
+}
+.stars-container{
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    font-size: 20px;
+}
+.stars-container:before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '★★★★★';
+    color:lightgray;
+}
+.stars-container:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '★★★★★';
+    color: gold;
+    overflow: hidden;
+}
+.stars-container.stars-0:after { width: 0%; }
+.stars-container.stars-5:after { width: 5%; }
+.stars-container.stars-10:after { width: 10%; }
+.stars-container.stars-15:after { width: 15%; }
+.stars-container.stars-20:after { width: 20%; }
+.stars-container.stars-25:after { width: 25%; }
+.stars-container.stars-30:after { width: 30%; }
+.stars-container.stars-35:after { width: 35%; }
+.stars-container.stars-40:after { width: 40%; }
+.stars-container.stars-45:after { width: 45%; }
+.stars-container.stars-50:after { width: 50%; }
+.stars-container.stars-55:after { width: 55%; }
+.stars-container.stars-60:after { width: 60%; }
+.stars-container.stars-65:after { width: 65%; }
+.stars-container.stars-70:after { width: 70%; }
+.stars-container.stars-75:after { width: 75%; }
+.stars-container.stars-80:after { width: 80%; }
+.stars-container.stars-85:after { width: 85%; }
+.stars-container.stars-90:after { width: 90%; }
+.stars-container.stars-95:after { width: 95%; }
+.stars-container.stars-100:after { width: 100%;}
+
+
+.author{
+    font-family: "Times New Roman", Times, serif;
+}
+.errormessage{
+    font-family: "Times New Roman", Times, serif;
+    color: darkred;
+}
+.button.ratebutton {
+    background-color: #c04ffb;
+    border: none;
+    color: #040404;
+    padding: 16px 32px;
+    text-align: justify-all;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
     cursor: pointer;
 }

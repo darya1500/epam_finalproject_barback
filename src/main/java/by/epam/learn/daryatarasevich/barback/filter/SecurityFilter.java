@@ -12,14 +12,27 @@ import java.io.IOException;
 
 @WebFilter("/*")
 public class SecurityFilter implements Filter {
-    private final static String LOGIN="/login";
-    private final static String INDEX="/index";
-    private final static String LOGIN_REDIRECT="/login?redirectId=";
+    private final static String LOGIN = "/login";
+    private final static String INDEX = "/index";
+    private final static String LOGIN_REDIRECT = "/login?redirectId=";
 
     public SecurityFilter() {
     }
+
     /**
-     * To perform work of filter in chain of filters.
+     * To init filter.
+     *
+     * @param fConfig
+     */
+    @Override
+    public void init(FilterConfig fConfig) {
+    }
+
+    /**
+     * To perform security filtering.
+     * First to get user information that is saved in Session after successful logging in.
+     * If servlet path equals /login then perform filtering.
+     * Else check if page needs user to be loged in and does the user has permission to go this page.
      *
      * @param request1
      * @param response1
@@ -31,48 +44,36 @@ public class SecurityFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) request1;
         HttpServletResponse response = (HttpServletResponse) response1;
         String servletPath = request.getServletPath();
-        // User information is saved in Session after successful logging in
         User logedUser = AppUtils.getLogedUser(request.getSession());
         if (servletPath.equals(LOGIN)) {
             chain.doFilter(request, response);
             return;
         }
-        HttpServletRequest wrapRequest = request;
+        HttpServletRequest request2 = request;
         if (logedUser != null) {
             String userName = logedUser.getName();
             String role = logedUser.getStatus().toString();
-            wrapRequest = new UserRoleRequestWrapper(userName, role, request);
+            request2 = new UserRoleRequestWrapper(userName, role, request);
         }
-        // Page that needs login
         if (SecurityUtils.isSecurityPage(request)) {
             if (logedUser == null) {
                 String requestUri = request.getRequestURI();
-                // Save current page for redirect after successful logging in
                 int redirectId = AppUtils.storeRedirectAfterLoginUrl(request.getSession(), requestUri);
-                response.sendRedirect(wrapRequest.getContextPath() + LOGIN_REDIRECT + redirectId);
+                response.sendRedirect(request2.getContextPath() + LOGIN_REDIRECT + redirectId);
                 return;
             }
-            // Check if user has a role
-            boolean hasPermission = SecurityUtils.hasPermission(wrapRequest);
+            boolean hasPermission = SecurityUtils.hasPermission(request2);
             if (!hasPermission) {
                 RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(INDEX);
                 dispatcher.forward(request, response);
                 return;
             }
         }
-        chain.doFilter(wrapRequest, response);
+        chain.doFilter(request2, response);
     }
-    /**
-     * To init filter.
-     *
-     * @param fConfig
-     */
-    @Override
-    public void init(FilterConfig fConfig) throws ServletException {
-    }
+
     /**
      * To destroy filter.
-     *
      */
     @Override
     public void destroy() {

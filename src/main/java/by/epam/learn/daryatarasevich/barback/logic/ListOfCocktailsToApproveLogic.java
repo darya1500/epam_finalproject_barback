@@ -26,7 +26,7 @@ public class ListOfCocktailsToApproveLogic {
      */
     public Cocktail loadCocktail(HttpServletRequest request) {
         String theCocktailID = request.getParameter(COCKTAIL_ID);
-        Cocktail theCocktail = suggestedCocktailDAO.getCocktailToApprove(theCocktailID);
+        Cocktail theCocktail = suggestedCocktailDAO.getT(theCocktailID);
         return theCocktail;
     }
     /**

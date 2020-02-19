@@ -16,6 +16,7 @@ public class LoginLogic {
         User user = new UserDAO().findUser(email, password);
         return user;
     }
+
     /**
      * To check role of user.
      *

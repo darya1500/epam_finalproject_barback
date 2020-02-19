@@ -14,7 +14,16 @@ public class ListOfBartendersCommand implements ActionCommand {
     private ListOfBartendersLogic listOfBartendersLogic=new ListOfBartendersLogic();
     RateCocktailLogic rateCocktailLogic;
     private static final Logger LOGGER = LogManager.getLogger(ListOfBartendersCommand.class);
-
+    /**
+     * Command defines actions executed with list of bartenders from database barbackdb.users.
+     * Operation LOAD loads bartender from database.
+     * Operation UPDATE updates bartender in database.
+     * Operation DELETE deletes bartender from database.
+     * Operation LIST loads list of bartenders from database.
+     *
+     * @param request
+     * @return page
+     */
     @Override
     public String execute(HttpServletRequest request) {
         String page = null;
@@ -26,37 +35,6 @@ public class ListOfBartendersCommand implements ActionCommand {
             theOperation = "LIST";
         }
         switch (theOperation) {
-            case "ADD":
-               try {
-                   listOfBartendersLogic.addBartender (request);
-               }catch (NullPointerException e){
-                   request.setAttribute ("message",MessageManager.getProperty("message.addbartendererror" ));
-                   LOGGER.error(MessageManager.getProperty("message.addbartendererror" ));
-                   bartenders=listOfBartendersLogic.listBartenders (request);
-                   request.setAttribute ("BARTENDERS", bartenders);
-                   userRatings = new ArrayList<>();
-                   for (User user : bartenders) {
-                       int userID = user.getId();
-                       double rating = rateCocktailLogic.getAuthorRating(userID);
-                       int userRate = (int) (rating * 20);
-                       userRatings.add(userRate);
-                   }
-                   request.setAttribute("USER_RATINGS", userRatings);
-                   page = ConfigurationManager.getProperty("path.page.listofbartenders.list");
-                   return page;
-               }
-                bartenders=listOfBartendersLogic.listBartenders (request);
-                request.setAttribute ("BARTENDERS", bartenders);
-                userRatings = new ArrayList<>();
-                for (User user : bartenders) {
-                    int userID = user.getId();
-                    double rating = rateCocktailLogic.getAuthorRating(userID);
-                    int userRate = (int) (rating * 20);
-                    userRatings.add(userRate);
-                }
-                request.setAttribute("USER_RATINGS", userRatings);
-                page = ConfigurationManager.getProperty("path.page.listofbartenders.list");
-                break;
             case "LOAD":
                 User theBartender=listOfBartendersLogic.loadBartender (request);
                 request.setAttribute("THE_BARTENDER", theBartender);
@@ -123,5 +101,4 @@ public class ListOfBartendersCommand implements ActionCommand {
         }
         return page;
     }
-    }
-
+}

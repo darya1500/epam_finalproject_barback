@@ -7,8 +7,9 @@ import org.apache.logging.log4j.Logger;
 
 public class DeleteAccountLogic {
     UserDAO userDAO = new UserDAO();
-    private final static String MESSAGE="Account has been deleted permanently.";
+    private final static String MESSAGE = "Account has been deleted permanently.";
     private static final Logger LOGGER = LogManager.getLogger(DeleteAccountLogic.class);
+
     /**
      * To delete user from database.
      *

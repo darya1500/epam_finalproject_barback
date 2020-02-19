@@ -8,6 +8,7 @@ import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import by.epam.learn.daryatarasevich.barback.validation.CommonValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +19,9 @@ public class ListOfIngredientsLogic {
     private final static String INGREDIENT_NAME_EN = "ingredientNameEN";
     private final static String INGREDIENT_NAME_RU = "ingredientNameRU";
     private final static String IS_ALCOHOL = "isAlcohol";
-    private final static String INGREDIENT_ID="ingredientID";
-    CommonValidator commonValidator =new CommonValidator();
+    private final static String INGREDIENT_ID = "ingredientID";
+    CommonValidator commonValidator = new CommonValidator();
+
     /**
      * To get all ingredients from database.
      *
@@ -30,15 +32,16 @@ public class ListOfIngredientsLogic {
         List<Ingredient> ingredients = ingredientDAO.getAll();
         return ingredients;
     }
+
     /**
      * To add ingredient to database.
      *
      * @param request
      */
-    public void addIngredient(HttpServletRequest request) {
+    public void addIngredient(HttpServletRequest request) throws NullPointerException {
         String ingredientNameEN = request.getParameter(INGREDIENT_NAME_EN);
-        boolean validated= commonValidator.validateIngredient(ingredientNameEN);
-        if (validated){
+        boolean validated = commonValidator.validateIngredient(ingredientNameEN);
+        if (validated) {
             String ingredientNameRU = request.getParameter(INGREDIENT_NAME_RU);
             String isAlc = request.getParameter(IS_ALCOHOL);
             boolean alcohol;
@@ -50,12 +53,13 @@ public class ListOfIngredientsLogic {
             boolean action = false;
             Ingredient theIngredient = new Ingredient(ingredientNameEN, ingredientNameRU, action, alcohol);
             ingredientDAO.add(theIngredient);
-        }else {
+        } else {
             LOGGER.error(MessageManager.getProperty("message.addingredienterror"));
-            throw new NullPointerException(MessageManager.getProperty("message.addingredienterror" ));
+            throw new NullPointerException(MessageManager.getProperty("message.addingredienterror"));
         }
 
     }
+
     /**
      * To get ingredient from database.
      *
@@ -67,15 +71,16 @@ public class ListOfIngredientsLogic {
         Ingredient theIngredient = ingredientDAO.getT(theIngredientID);
         return theIngredient;
     }
+
     /**
      * To update ingredient in database.
      *
      * @param request
      */
-    public void updateIngredient(HttpServletRequest request) {
+    public void updateIngredient(HttpServletRequest request) throws NullPointerException {
         int ingredientID = Integer.parseInt(request.getParameter(INGREDIENT_ID));
         String ingredientNameEN = request.getParameter(INGREDIENT_NAME_EN);
-        boolean validated= commonValidator.validateIngredient(ingredientNameEN);
+        boolean validated = commonValidator.validateIngredient(ingredientNameEN);
         if (validated) {
             String ingredientNameRU = request.getParameter(INGREDIENT_NAME_RU);
             boolean isAction = false;
@@ -88,11 +93,12 @@ public class ListOfIngredientsLogic {
             }
             Ingredient theIngredient = new Ingredient(ingredientID, ingredientNameEN, ingredientNameRU, isAction, isAlcohol);
             ingredientDAO.update(theIngredient);
-        }else {
+        } else {
             LOGGER.error(MessageManager.getProperty("message.updatingingredienterror"));
-            throw new NullPointerException(MessageManager.getProperty("message.updatingingredienterror" ));
+            throw new NullPointerException(MessageManager.getProperty("message.updatingingredienterror"));
         }
     }
+
     /**
      * To delete ingredient from database.
      *
@@ -102,6 +108,7 @@ public class ListOfIngredientsLogic {
         String theIngredientID = request.getParameter(INGREDIENT_ID);
         ingredientDAO.delete(theIngredientID);
     }
+
     /**
      * To get all ingredients from database that cocktail consists of.
      *

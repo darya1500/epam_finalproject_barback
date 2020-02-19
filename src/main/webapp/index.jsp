@@ -1,27 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <fmt:setBundle basename="i18n.resources.mylabels"/>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
-<style>
-    body, h1, h2, h3, h4, h5, h6 {
-        font-family: "Karma", sans-serif
-    }
-    .w3-bar-block .w3-bar-item {
-        padding: 20px
-    }
-</style>
 <head>
     <meta charset="UTF-8">
-    <title> <fmt:message key="label.barback"/></title>
+    <title><fmt:message key="label.barback"/></title>
+    <link type="text/css" rel="stylesheet" href="css/w3.css">
 </head>
 <body>
 <jsp:include page="/WEB-INF/myheader.jsp"/>
 <!-- !PAGE CONTENT! -->
-<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:20px">
     <!-- First Photo Grid-->
     <div class="w3-row-padding w3-padding-16 w3-center" id="drinks">
         <div class="w3-quarter">

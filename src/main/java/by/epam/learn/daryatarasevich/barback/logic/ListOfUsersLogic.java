@@ -3,10 +3,15 @@ package by.epam.learn.daryatarasevich.barback.logic;
 import by.epam.learn.daryatarasevich.barback.dao.UserDAO;
 import by.epam.learn.daryatarasevich.barback.entity.Status;
 import by.epam.learn.daryatarasevich.barback.entity.User;
+import by.epam.learn.daryatarasevich.barback.exception.InvalidEmailException;
+import by.epam.learn.daryatarasevich.barback.exception.InvalidPasswordException;
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
+import by.epam.learn.daryatarasevich.barback.exception.RegistrationException;
 import by.epam.learn.daryatarasevich.barback.validation.CommonValidator;
+import by.epam.learn.daryatarasevich.barback.validation.RegisterValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
@@ -19,7 +24,9 @@ public class ListOfUsersLogic {
     private final static String DESCRIPTION = "description";
     private final static String EMAIL = "email";
     private final static String PASSWORD = "password";
-    CommonValidator commonValidator =new CommonValidator();
+    CommonValidator commonValidator = new CommonValidator();
+    RegisterValidator registerValidator = new RegisterValidator();
+
     /**
      * To get all users from database.
      *
@@ -30,26 +37,34 @@ public class ListOfUsersLogic {
         List<User> users = userDAO.getAll();
         return users;
     }
+
     /**
      * To add user to database.
      *
      * @param request
      */
-    public void addUser(HttpServletRequest request) {
+    public void addUser(HttpServletRequest request) throws InvalidEmailException, InvalidPasswordException, RegistrationException, NullPointerException {
         String userNameEN = request.getParameter(USER_NAME_EN);
-        boolean validated= commonValidator.validateUser(userNameEN);
-        if (validated) {
+        String email = request.getParameter(EMAIL);
+        String password = request.getParameter(PASSWORD);
+        boolean validated = registerValidator.validate(email, password, userNameEN);
+        boolean validatedEmail = registerValidator.validateEmail(email);
+        boolean validatedPassword = registerValidator.validatePassword(password);
+        if (validated && validatedEmail && validatedPassword) {
+            boolean isRegistered = userDAO.checkUser(email);
+            if (isRegistered) {
+                LOGGER.info(MessageManager.getProperty("message.userisalreadyregistered"));
+                throw new RegistrationException(MessageManager.getProperty("message.userisalreadyregistered"));
+            }
             String userNameRU = request.getParameter(USER_NAME_RU);
-            String email = request.getParameter(EMAIL);
-            String password = request.getParameter(PASSWORD);
             String description = request.getParameter(DESCRIPTION);
             User theUser = new User(userNameEN, userNameRU, email, password, description, Status.USER);
             userDAO.add(theUser);
-        }else {
-            LOGGER.error(MessageManager.getProperty("message.addusererror"));
-            throw new NullPointerException(MessageManager.getProperty("message.addusererror" ));
+        } else {
+            throw new NullPointerException(MessageManager.getProperty("message.addusererror"));
         }
     }
+
     /**
      * To load user from database.
      *
@@ -61,15 +76,16 @@ public class ListOfUsersLogic {
         User theUser = userDAO.getT(theUserID);
         return theUser;
     }
+
     /**
      * To update user in database.
      *
      * @param request
      */
-    public void updateUser(HttpServletRequest request) {
+    public void updateUser(HttpServletRequest request) throws NullPointerException {
         int userID = Integer.parseInt(request.getParameter(USER_ID));
         String userNameEN = request.getParameter(USER_NAME_EN);
-        boolean validated= commonValidator.validateUser(userNameEN);
+        boolean validated = commonValidator.validateUser(userNameEN);
         if (validated) {
             String userNameRU = request.getParameter(USER_NAME_RU);
             String email = request.getParameter(EMAIL);
@@ -77,11 +93,12 @@ public class ListOfUsersLogic {
             String description = request.getParameter(DESCRIPTION);
             User theUser = new User(userID, userNameEN, userNameRU, email, password, description, Status.USER);
             userDAO.update(theUser);
-        }else {
+        } else {
             LOGGER.error(MessageManager.getProperty("message.updatingusererror"));
-            throw new NullPointerException(MessageManager.getProperty("message.updatingusererror" ));
+            throw new NullPointerException(MessageManager.getProperty("message.updatingusererror"));
         }
     }
+
     /**
      * To delete user from database.
      *
@@ -91,6 +108,7 @@ public class ListOfUsersLogic {
         String theUserID = request.getParameter(USER_ID);
         userDAO.delete(theUserID);
     }
+
     /**
      * To load user from database by author ID.
      *
@@ -101,6 +119,7 @@ public class ListOfUsersLogic {
         User theUser = userDAO.getT(String.valueOf(authorID));
         return theUser;
     }
+
     /**
      * To change user defined by user ID status to new status.
      *
@@ -108,11 +127,17 @@ public class ListOfUsersLogic {
      * @param newStatus
      */
     public void changestatus(int userID, String newStatus) {
-        userDAO.changeStatus(userID,newStatus);
+        userDAO.changeStatus(userID, newStatus);
     }
 
+    /**
+     * To load user defined by email from database.
+     *
+     * @param email
+     * @return user
+     */
     public User loadUserByEmail(String email) {
-        User user=userDAO.getUserByEmail(email);
+        User user = userDAO.getUserByEmail(email);
         return user;
     }
 }

@@ -9,6 +9,8 @@
 <body>
 <jsp:include page="/WEB-INF/myheader.jsp"/>
 <h2><fmt:message  key="label.createcocktail" /></h2>
+<c:out value="${sessionScope.whileAddingCocktailMessage}"/>
+<c:remove var="whileAddingCocktailMessage" scope="session" />
 <form name="createcocktailform" action="controller" method="POST">
 	<input type="hidden" name="command" value="createcocktail"/>
 	<fmt:message  key="label.nameEN" />:<input type="text" name="nameEN"><br/><br/>

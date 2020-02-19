@@ -10,7 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 public class SuggestCocktailCommand implements ActionCommand {
     SuggestCocktailLogic suggestCocktailLogic = new SuggestCocktailLogic();
     private static final Logger LOGGER = LogManager.getLogger(SuggestCocktailCommand.class);
-
+    /**
+     * To add cocktail suggested by user to database barbackdb.suggestedcocktails.
+     *
+     * @param request
+     * @return page
+     */
     @Override
     public String execute(HttpServletRequest request) {
         String page = null;

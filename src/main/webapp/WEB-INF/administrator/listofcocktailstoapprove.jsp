@@ -31,7 +31,7 @@
         <h2><fmt:message  key="label.listofcocktailstoapprove" /></h2>
     </div>
 </div>
-${SUCCESS_MESSAGE}
+<c:out value="${SUCCESS_MESSAGE}"/>
 <div id="container">
     <div id="content">
         <table>

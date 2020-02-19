@@ -11,7 +11,16 @@ import java.util.List;
 public class ListOfIngredientsCommand implements ActionCommand {
     private ListOfIngredientsLogic listOfIngredientsLogic = new ListOfIngredientsLogic();
     private static final Logger LOGGER = LogManager.getLogger(ListOfIngredientsCommand.class);
-
+    /**
+     * Command defines actions executed with list of ingredients from database barbackdb.ingredients.
+     * Operation LOAD loads ingredient from database.
+     * Operation UPDATE updates ingredient in database.
+     * Operation DELETE deletes ingredient from database.
+     * Operation LIST loads list of ingredients from database.
+     *
+     * @param request
+     * @return page
+     */
     @Override
     public String execute(HttpServletRequest request) {
         String page = null;
@@ -21,21 +30,6 @@ public class ListOfIngredientsCommand implements ActionCommand {
             theOperation = "LIST";
         }
         switch (theOperation) {
-            case "ADD":
-                try {
-                    listOfIngredientsLogic.addIngredient(request);
-                } catch (NullPointerException e) {
-                    request.setAttribute("message", MessageManager.getProperty("message.addingingredienterror"));
-                    LOGGER.error(MessageManager.getProperty("message.addingingredienterror"));
-                    ingredients = listOfIngredientsLogic.listIngredients(request);
-                    request.setAttribute("INGREDIENTS", ingredients);
-                    page = ConfigurationManager.getProperty("path.page.listofuingredients.list");
-                    return page;
-                }
-                ingredients = listOfIngredientsLogic.listIngredients(request);
-                request.setAttribute("INGREDIENTS", ingredients);
-                page = ConfigurationManager.getProperty("path.page.listofuingredients.list");
-                break;
             case "LOAD":
                 Ingredient theIngredient = listOfIngredientsLogic.loadIngredient(request);
                 request.setAttribute("THE_INGREDIENT", theIngredient);

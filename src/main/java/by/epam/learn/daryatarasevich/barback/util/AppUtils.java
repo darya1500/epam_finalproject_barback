@@ -1,6 +1,7 @@
 package by.epam.learn.daryatarasevich.barback.util;
 
 import by.epam.learn.daryatarasevich.barback.entity.User;
+
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,9 +10,10 @@ public class AppUtils {
     private static int REDIRECT_ID = 0;
     private static final Map<Integer, String> id_uri_map = new HashMap<>();
     private static final Map<String, Integer> uri_id_map = new HashMap<>();
-    private final static String LOGED_USER="logedUser";
+    private final static String LOGED_USER = "logedUser";
+
     /**
-     * To save user information into Session.
+     * To save loged user information into Session.
      *
      * @param session
      * @param logedUser
@@ -19,16 +21,18 @@ public class AppUtils {
     public static void storeLogedUser(HttpSession session, User logedUser) {
         session.setAttribute(LOGED_USER, logedUser);
     }
+
     /**
-     * To get user information from Session.
+     * To get loged user information from Session.
      *
      * @param session
-     *@return logedUser
+     * @return logedUser
      */
     public static User getLogedUser(HttpSession session) {
         User logedUser = (User) session.getAttribute(LOGED_USER);
         return logedUser;
     }
+
     /**
      * To store redirect after login.
      *
@@ -46,19 +50,4 @@ public class AppUtils {
         }
         return id;
     }
-    /**
-     * To get redirect after login.
-     *
-     * @param session
-     * @param redirectId
-     * @return null
-     */
-    public static String getRedirectAfterLoginUrl(HttpSession session, int redirectId) {
-        String url = id_uri_map.get(redirectId);
-        if (url != null) {
-            return url;
-        }
-        return null;
-    }
-
 }

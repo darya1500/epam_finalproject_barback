@@ -27,7 +27,7 @@
         <fmt:message key="label.submit"/>
     </button>
 </form>
-<button type="button" class="button22" onclick="history.back(); return false;"><fmt:message key="label.back"/></button>
+<button type="button" class="button2" onclick="history.back(); return false;"><fmt:message key="label.back"/></button>
 <jsp:include page="/WEB-INF/myfooter.html"/>
 </body>
 </html>

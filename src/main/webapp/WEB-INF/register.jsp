@@ -17,7 +17,7 @@
 </div>
 <!-- !PAGE CONTENT! -->
 <h2><fmt:message key="label.createnewaccount"/></h2>
-${errorMessage}
+<c:out value="${errorMessage}"/>
 <form name="registerform" action="controller" method="POST">
     <input type="hidden" name="command" value="register"/>
     <fmt:message key="label.email"/>:<input type="text" name="email" placeholder="Your email.."><br/><br/>
@@ -29,7 +29,7 @@ ${errorMessage}
                                                   placeholder="Some words about yourself..."><br/><br/>
     <button type="submit"><fmt:message key="label.submit"/></button>
 </form>
-<button class="button22" onclick="javascript:history.back(); return false;"><fmt:message key="label.back"/></button>
+<button class="button2" onclick="javascript:history.back(); return false;"><fmt:message key="label.back"/></button>
 <jsp:include page="/WEB-INF/myfooter.html"/>
 </body>
 </html>

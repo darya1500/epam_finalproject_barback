@@ -3,23 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <fmt:setBundle basename="i18n.resources.mylabels" />
 <html>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
-<style>
-    input[type=submit] {
-        background-color: #ffffff;
-        border: none;
-        color: #0b013b;
-        padding: 16px 32px;
-        text-decoration: none;
-        margin: 4px 2px;
-        cursor: pointer;
-    }
-body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
-.w3-bar-block .w3-bar-item {padding:20px}
-</style>
 <head>
  <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/w3.css">
 </head>
 <body>
 <!-- Sidebar-left-menu (hidden by default) -->
@@ -48,23 +35,24 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
     </div>
 </div>
 <!--Language selection menu-->
-<br/><br/><br/><br/>
-<div class="btn-group">
-<form action="controller" method="POST">
-    <input type="hidden" name="command" value="LOCALE" />
-    <input type="hidden" name="locale" value="ru_RU" />
-    <button type="submit">
-        <fmt:message  key="label.russian" />
-    </button>
-</form>
-<form action="controller" method="POST">
-    <input type="hidden" name="command" value="LOCALE" />
-    <input type="hidden" name="locale" value="en_GB" />
-    <button type="submit">
-        <fmt:message  key="label.english" />
-    </button>
-</form>
+<br/><br/>
+<div class="btn-group" >
+    <form action="controller" method="POST">
+        <input type="hidden" name="command" value="LOCALE" />
+        <input type="hidden" name="locale" value="ru_RU" />
+        <button  class="button" type="submit" >
+            <fmt:message  key="label.russian" />
+        </button>
+    </form>
+    <form action="controller" method="POST">
+        <input type="hidden" name="command" value="LOCALE" />
+        <input type="hidden" name="locale" value="en_GB" />
+        <button class="button" type="submit">
+            <fmt:message  key="label.english" />
+        </button>
+    </form>
 </div>
+<br/><br/>
 <script>
 // Script to open and close sidebar
 function w3_open() {

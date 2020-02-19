@@ -1,7 +1,7 @@
 package by.epam.learn.daryatarasevich.barback.logic;
 
-import by.epam.learn.daryatarasevich.barback.dao.CocktailDAO;
 import by.epam.learn.daryatarasevich.barback.dao.IngredientDAO;
+import by.epam.learn.daryatarasevich.barback.dao.SuggestedCocktailDAO;
 import by.epam.learn.daryatarasevich.barback.entity.Cocktail;
 import by.epam.learn.daryatarasevich.barback.entity.Component;
 import by.epam.learn.daryatarasevich.barback.entity.Ingredient;
@@ -10,12 +10,13 @@ import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import by.epam.learn.daryatarasevich.barback.validation.CommonValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SuggestCocktailLogic {
-    CocktailDAO cocktailDAO = new CocktailDAO();
+    SuggestedCocktailDAO suggestedCocktailDAO = new SuggestedCocktailDAO();
     IngredientDAO ingredientDAO = new IngredientDAO();
     private final static String NAME_EN = "nameEN";
     private final static String NAME_RU = "nameRU";
@@ -23,7 +24,7 @@ public class SuggestCocktailLogic {
     private final static String AMOUNT = "amount";
     private final static String DESCRIPTION = "description";
     private final static String LOGED_USER = "logedUser";
-    CommonValidator commonValidator =new CommonValidator();
+    CommonValidator commonValidator = new CommonValidator();
     private static final Logger LOGGER = LogManager.getLogger(SuggestCocktailLogic.class);
 
     /**
@@ -33,12 +34,12 @@ public class SuggestCocktailLogic {
      * @return cocktail
      * @throws NullPointerException
      */
-    public Cocktail getCocktail(HttpServletRequest request) throws NullPointerException{
+    public Cocktail getCocktail(HttpServletRequest request) throws NullPointerException {
         User user = (User) request.getSession().getAttribute(LOGED_USER);
         Cocktail cocktail = null;
         String nameEN = request.getParameter(NAME_EN);
-        boolean validated= commonValidator.validateCocktail(nameEN);
-        if (validated){
+        boolean validated = commonValidator.validateCocktail(nameEN);
+        if (validated) {
             String nameRU = request.getParameter(NAME_RU);
             List<Component> components = new ArrayList<>();
             for (int i = 1; i <= 10; i++) {
@@ -56,7 +57,7 @@ public class SuggestCocktailLogic {
             if (components.size() >= 1) {
                 cocktail = new Cocktail(nameEN, nameRU, user, components);
             }
-        }else {
+        } else {
             LOGGER.error(MessageManager.getProperty("message.invalidnameerror"));
             throw new NullPointerException(MessageManager.getProperty("message.invalidnameerror"));
         }
@@ -89,6 +90,6 @@ public class SuggestCocktailLogic {
      * @param cocktail
      */
     public void sendCocktailToAdmin(Cocktail cocktail) {
-           cocktailDAO.sendCocktailsForApproval(cocktail);
+        suggestedCocktailDAO.add(cocktail);
     }
 }

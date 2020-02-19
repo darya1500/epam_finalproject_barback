@@ -6,26 +6,13 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
 import java.util.Map;
 
-
 public class UrlPatternUtils {
-    private static boolean hasUrlPattern(ServletContext servletContext, String urlPattern) {
-        //map with all registered servlets
-        Map<String, ? extends ServletRegistration> mapAllRegisteredServlets = servletContext.getServletRegistrations();
-        for (String servletName : mapAllRegisteredServlets.keySet()) {
-            ServletRegistration servletRegistration = mapAllRegisteredServlets.get(servletName);
-            Collection<String> mappings = servletRegistration.getMappings();
-            if (mappings.contains(urlPattern)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    // servletPath:
-    // ==> /spath
-    // ==> /spath/*
-    // ==> *.ext
-    // ==> /
+    /**
+     * To get url pattern.
+     *
+     * @param request
+     * @return urlPattern
+     */
     public static String getUrlPattern(HttpServletRequest request) {
         ServletContext servletContext = request.getServletContext();
         String servletPath = request.getServletPath();
@@ -50,5 +37,25 @@ public class UrlPatternUtils {
             }
         }
         return "/";
+    }
+
+    /**
+     * To get url pattern.
+     *
+     * @param servletContext
+     * @param urlPattern
+     * @return true
+     */
+    private static boolean hasUrlPattern(ServletContext servletContext, String urlPattern) {
+        //map with all registered servlets
+        Map<String, ? extends ServletRegistration> mapAllRegisteredServlets = servletContext.getServletRegistrations();
+        for (String servletName : mapAllRegisteredServlets.keySet()) {
+            ServletRegistration servletRegistration = mapAllRegisteredServlets.get(servletName);
+            Collection<String> mappings = servletRegistration.getMappings();
+            if (mappings.contains(urlPattern)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

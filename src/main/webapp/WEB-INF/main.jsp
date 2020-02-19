@@ -11,8 +11,16 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/myheader.jsp"/><br/>
-${message}
-${defaultMessage}
+<c:out value="${sessionScope.whileAddingBartenderMessage}"/>
+<c:remove var="whileAddingBartenderMessage" scope="session" />
+<c:out value="${sessionScope.whileAddingUserMessage}"/>
+<c:remove var="whileAddingBartenderMessage" scope="session" />
+<c:out value="${sessionScope.whileAddingCocktailMessage}"/>
+<c:remove var="whileAddingCocktailMessage" scope="session" />
+<c:out value="${sessionScope.whileAddingIngredientMessage}"/>
+<c:remove var="whileAddingIngredientMessage" scope="session" />
+<c:out value="${message}"/>
+<c:out value="${defaultMessage}"/>
 <c:set scope="request" var="temp" value="${USER}"/>
 <div id="wrapper">
     <div id="header">

@@ -16,10 +16,11 @@
 		</div>
 	</div>
 	<div id="container">
+        <c:out value="${sessionScope.whileAddingUserMessage}"/>
+        <c:remove var="whileAddingBartenderMessage" scope="session" />
 		<h3><fmt:message  key="label.adduser" /></h3>
 		<form action="controller" method="POST" accept-charset="UTF-8">
-			<input type="hidden" name="command" value="listofusers" />
-			<input type="hidden" name="operation" value="ADD" />
+			<input type="hidden" name="command" value="adduser" />
 			<table>
 				<tbody>
 				<tr>

@@ -11,6 +11,7 @@ import org.apache.logging.log4j.Logger;
 public class RegisterLogic {
     private UserDAO userDAO = new UserDAO();
     private static final Logger LOGGER = LogManager.getLogger(RegisterLogic.class);
+
     /**
      * To register user. Beforehand to check if user is already registered.
      *
@@ -20,10 +21,10 @@ public class RegisterLogic {
      * @param password
      * @param description
      * @param status
-     * @throws NullPointerException
      * @return result
+     * @throws NullPointerException
      */
-    public boolean register(String userNameEN, String userNameRU, String email, String password, String description, Status status) {
+    public boolean register(String userNameEN, String userNameRU, String email, String password, String description, Status status) throws NullPointerException {
         User theUser = null;
         boolean result = false;
         boolean isRegistered = userDAO.checkUser(email);
@@ -32,11 +33,11 @@ public class RegisterLogic {
             result = false;
             LOGGER.info(MessageManager.getProperty("message.userisalreadyregistered"));
         } else {
-            userDAO.registerUser(userX);
+            userDAO.add(userX);
             theUser = userDAO.getT(userX);
             if (theUser == null) {
-                    LOGGER.error(MessageManager.getProperty("message.errorwhileregistration"));
-                    throw new NullPointerException(MessageManager.getProperty("message.errorwhileregistration"));
+                LOGGER.error(MessageManager.getProperty("message.errorwhileregistration"));
+                throw new NullPointerException(MessageManager.getProperty("message.errorwhileregistration"));
             }
             result = true;
         }

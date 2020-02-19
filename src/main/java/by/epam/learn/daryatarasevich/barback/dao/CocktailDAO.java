@@ -3,7 +3,6 @@ package by.epam.learn.daryatarasevich.barback.dao;
 import by.epam.learn.daryatarasevich.barback.entity.*;
 import by.epam.learn.daryatarasevich.barback.exception.ConnectionPoolException;
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
-import by.epam.learn.daryatarasevich.barback.exception.NoSuchIngredientsException;
 import by.epam.learn.daryatarasevich.barback.pool.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -16,6 +15,7 @@ import java.util.List;
 
 public class CocktailDAO extends DAO<Cocktail> {
     private UserDAO userDAO = new UserDAO();
+    IngredientDAO ingredientDAO=new IngredientDAO();
     private static final Logger LOGGER = LogManager.getLogger(CocktailDAO.class);
     private final static String COCKTAIL_NAME_EN="cocktailNameEN";
     private final static String COCKTAIL_NAME_RU="cocktailNameRU";
@@ -24,7 +24,11 @@ public class CocktailDAO extends DAO<Cocktail> {
     private final static String INGREDIENT_AMOUNT="ingredientAmount";
     private final static String DESCRIPTION="description";
     private final static String ORDER_NUMBER="orderNumber";
-
+    /**
+     * To get all cocktails from database barbackdb.cocktails.
+     *
+     * @return cocktails
+     */
     @Override
     public List<Cocktail> getAll() {
         List<Cocktail> cocktails = new ArrayList<>();
@@ -73,7 +77,11 @@ public class CocktailDAO extends DAO<Cocktail> {
         }
         return cocktails;
     }
-
+    /**
+     * To delete cocktail defined by id from database barbackdb.cocktails.
+     *
+     * @param theCocktailID
+     */
     @Override
     public void delete(String theCocktailID) {
         Connection myConn = null;
@@ -95,7 +103,6 @@ public class CocktailDAO extends DAO<Cocktail> {
      * To get cocktail from database barbackdb.cocktails by cocktail ID.
      *
      * @param theCocktailID
-     * @throws SQLException,ConnectionPoolException
      * @return cocktail
      */
     @Override
@@ -135,11 +142,12 @@ public class CocktailDAO extends DAO<Cocktail> {
         return cocktail;
     }
 
-    @Override
-    public Cocktail getT(Cocktail cocktail) {
-        return null;
-    }
 
+    /**
+     * To update cocktail in database barbackdb.cocktails.
+     *
+     * @param theCocktail
+     */
     @Override
     public void update(Cocktail theCocktail) {
         Connection myConn = null;
@@ -184,7 +192,11 @@ public class CocktailDAO extends DAO<Cocktail> {
             close(myConn2, myStmt2, null);
         }
     }
-
+    /**
+     * To add cocktail to database barbackdb.cocktails.
+     *
+     * @param theCocktail
+     */
     @Override
     public void add(Cocktail theCocktail) {
         int previousID = getPreviousIDFromCocktails();
@@ -223,87 +235,12 @@ public class CocktailDAO extends DAO<Cocktail> {
             close(myConn, myStmt, null);
         }
     }
-
-    public int getIngredientID(String ingredientNameEN) {
-        Ingredient ingredient = getIngredient(ingredientNameEN);
-        int ingredientID = ingredient.getId();
-        return ingredientID;
-    }
-
-    private Ingredient getIngredient(String ingredientNameEN) {
-        Ingredient theIngredient = null;
-        Connection myConn = null;
-        PreparedStatement myStmt = null;
-        ResultSet myRs = null;
-        try {
-            myConn = ConnectionPool.POOL.getConnection();
-            String sql = "select * from barbackdb.ingredients where ingredientNameEN=?";
-            myStmt = myConn.prepareStatement(sql);
-            myStmt.setString(1, ingredientNameEN);
-            myRs = myStmt.executeQuery();
-            if (myRs.next()) {
-                int ingredientID = myRs.getInt("ingredientID");
-                String ingredientNameRU = myRs.getString("ingredientNameRU");
-                boolean alcohol = myRs.getBoolean("isAlcohol");
-                boolean action = myRs.getBoolean("isAction");
-                theIngredient = new Ingredient(ingredientID, ingredientNameEN, ingredientNameRU, alcohol, action);
-            } else {
-                throw new NoSuchIngredientsException(MessageManager.getProperty("message.couldnotfindingredientname") + ingredientNameEN);
-            }
-            return theIngredient;
-        } catch (SQLException | ConnectionPoolException e) {
-            LOGGER.error(MessageManager.getProperty("message.databaseerror"));
-        } catch (NoSuchIngredientsException e) {
-            LOGGER.error(MessageManager.getProperty("message.couldnotfindingredientname") + ingredientNameEN);
-        } finally {
-            close(myConn, myStmt, myRs);
-        }
-        return theIngredient;
-    }
-
-    public void addIngredient(String ingredientNameEN, String ingredientNameRU) throws NamingException {
-        Connection myConn = null;
-        PreparedStatement myStmt = null;
-        try {
-            myConn = ConnectionPool.POOL.getConnection();
-            String sql = "insert into barbackdb.ingredients "
-                    + "( ingredientNameEN, ingredientNameRU, isAlcohol, isAction)"
-                    + "values ( ?, ?, ?, ? )";
-            myStmt = myConn.prepareStatement(sql);
-            myStmt.setString(1, ingredientNameEN);
-            myStmt.setString(2, ingredientNameRU);
-            myStmt.setBoolean(3, false);
-            myStmt.setBoolean(4, false);
-            myStmt.execute();
-        } catch (SQLException | ConnectionPoolException e) {
-            LOGGER.error(MessageManager.getProperty("message.databaseerror"));
-        } finally {
-            close(myConn, myStmt, null);
-        }
-    }
-
-    public boolean checkIngredient(String ingredientNameEN) {
-        boolean isregistered = false;
-        Connection myConn = null;
-        PreparedStatement myStmt = null;
-        ResultSet myRs = null;
-        try {
-            myConn = ConnectionPool.POOL.getConnection();
-            String sql = "select * from barbackdb.ingredients where ingredientNameEN=?";
-            myStmt = myConn.prepareStatement(sql);
-            myStmt.setString(1, ingredientNameEN);
-            myRs = myStmt.executeQuery();
-            if (myRs.next()) {
-                isregistered = true;
-            }
-        } catch (SQLException | ConnectionPoolException e) {
-            LOGGER.error(MessageManager.getProperty("message.databaseerror"));
-        }  finally {
-            close(myConn, myStmt, myRs);
-        }
-        return isregistered;
-    }
-
+    /**
+     * To get list of cocktails created by user with defined id from database barbackdb.cocktails.
+     *
+     * @param userID
+     * @return cocktails
+     */
     public List<Cocktail> getAllByID(int userID) {
         List<Cocktail> cocktails = new ArrayList<>();
         Connection myConn = null;
@@ -354,61 +291,11 @@ public class CocktailDAO extends DAO<Cocktail> {
         return cocktails;
     }
 
-    public void sendCocktailsForApproval(Cocktail cocktail) {
-        List<Component> components = cocktail.getComponents();
-        int amount = components.size();
-        int previousID = getPreviousIDFromSuggestedCocktails();
-        ID id = new ID();
-        int generatedID = id.createID(previousID);
-        Connection myConn = null;
-        PreparedStatement myStmt = null;
-        try {
-            myConn = ConnectionPool.POOL.getConnection();
-            String sql = "insert into barbackdb.suggestedcocktails "
-                    + "( cocktailNameEN, cocktailNameRU, authorID, ingredientID, ingredientAmount, description,orderNumber,id)"
-                    + "values ( ?, ?, ?, ? , ?, ?, ?,? )";
-            for (int i = 0; i < amount; i++) {
-                myStmt = myConn.prepareStatement(sql);
-                myStmt.setString(1, cocktail.getNameEN());
-                myStmt.setString(2, cocktail.getNameRU());
-                myStmt.setInt(3, cocktail.getAuthor().getId());
-                myStmt.setInt(4, components.get(i).getIngredientID());
-                myStmt.setString(5, components.get(i).getIngredientAmount());
-                myStmt.setString(6, components.get(i).getDescription());
-                myStmt.setInt(7, components.get(i).getOrderNumber());
-                myStmt.setString(8, String.valueOf(generatedID));
-                myStmt.execute();
-            }
-        } catch (SQLException | ConnectionPoolException e) {
-            LOGGER.error(MessageManager.getProperty("message.databaseerror"));
-        } finally {
-            close(myConn, myStmt, null);
-        }
-    }
-
-    private int getPreviousIDFromSuggestedCocktails() {
-        Connection myConn = null;
-        Statement myStmt = null;
-        ResultSet myRs = null;
-        List<Integer> values = new ArrayList<>();
-        int result = 0;
-        try {
-            myConn = ConnectionPool.POOL.getConnection();
-            String sql = "select id from barbackdb.suggestedcocktails";
-            myStmt = myConn.createStatement();
-            myRs = myStmt.executeQuery(sql);
-            while (myRs.next()) {
-                int x = myRs.getInt("id");
-                values.add(x);
-            }
-                result = Collections.max(values);
-        } catch (SQLException | ConnectionPoolException e) {
-            LOGGER.error(MessageManager.getProperty("message.databaseerror"));
-        } finally {
-            close(myConn, myStmt, myRs);
-        }
-        return result;
-    }
+    /**
+     * To get maximum cocktail id number used in database barbackdb.cocktails.
+     *
+     * @return result
+     */
 
     private int getPreviousIDFromCocktails() {
         Connection myConn = null;
@@ -433,7 +320,11 @@ public class CocktailDAO extends DAO<Cocktail> {
         }
         return result;
     }
-
+    /**
+     * To add cocktail approved by administrator from barbackdb.suggestedcocktails to barbackdb.cocktails
+     *
+     * @param theCocktail
+     */
     public void addApproved(Cocktail theCocktail) {
         int previousID = getPreviousIDFromCocktails();
         ID id = new ID();
@@ -466,5 +357,12 @@ public class CocktailDAO extends DAO<Cocktail> {
         } finally {
             close(myConn, myStmt, null);
         }
+    }
+    /**
+     * Out of use method.
+     */
+    @Override
+    public Cocktail getT(Cocktail cocktail) {
+        return null;
     }
 }

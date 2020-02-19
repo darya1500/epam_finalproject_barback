@@ -11,27 +11,34 @@ import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import by.epam.learn.daryatarasevich.barback.validation.CommonValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CreateCocktailLogic {
-    CocktailDAO cocktailDAO=new CocktailDAO();
-    IngredientDAO ingredientDAO=new IngredientDAO();
+    CocktailDAO cocktailDAO = new CocktailDAO();
+    IngredientDAO ingredientDAO = new IngredientDAO();
     private static final Logger LOGGER = LogManager.getLogger(CreateCocktailLogic.class);
-    private final static String LOGED_USER="logedUser";
-    private final static String NAME_EN="nameEN";
-    private final static String INGREDIENT_NAME_EN="ingredientNameEN";
-    private final static String INGREDIENT_NAME_RU="ingredientNameRU";
-    private final static String NAME_RU="nameRU";
-    private final static String AMOUNT="amount";
-    private final static String DESCRIPTION="description";
-    private final static String IS_ALCOHOL="isAlcohol";
-    CommonValidator commonValidator =new CommonValidator();
+    private final static String LOGED_USER = "logedUser";
+    private final static String NAME_EN = "nameEN";
+    private final static String INGREDIENT_NAME_EN = "ingredientNameEN";
+    private final static String INGREDIENT_NAME_RU = "ingredientNameRU";
+    private final static String NAME_RU = "nameRU";
+    private final static String AMOUNT = "amount";
+    private final static String DESCRIPTION = "description";
+    private final static String IS_ALCOHOL = "isAlcohol";
+    CommonValidator commonValidator = new CommonValidator();
 
+    /**
+     * To add cocktail to database.
+     *
+     * @param cocktail
+     */
     public void addCocktail(Cocktail cocktail) {
         cocktailDAO.add(cocktail);
     }
+
     /**
      * To get cocktail by name from database.
      * To check if each ingredient is already in database. If not then to add ingredient to database.
@@ -43,8 +50,8 @@ public class CreateCocktailLogic {
         User user = (User) request.getSession().getAttribute(LOGED_USER);
         Cocktail cocktail = null;
         String nameEN = request.getParameter(NAME_EN);
-        boolean validated= commonValidator.validateCocktail(nameEN);
-        if (validated){
+        boolean validated = commonValidator.validateCocktail(nameEN);
+        if (validated) {
             String nameRU = request.getParameter(NAME_RU);
             List<Component> components = new ArrayList<>();
             for (int i = 1; i <= 10; i++) {
@@ -79,11 +86,12 @@ public class CreateCocktailLogic {
                 cocktail = new Cocktail(nameEN, nameRU, user, components);
             }
             return cocktail;
-        }else {
+        } else {
             LOGGER.error(MessageManager.getProperty("message.invalidnameerror"));
             throw new NullPointerException(MessageManager.getProperty("message.invalidnameerror"));
         }
     }
+
     /**
      * To check if ingredient is already in database.
      *

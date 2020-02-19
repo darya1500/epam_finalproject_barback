@@ -60,7 +60,7 @@
 			<h2><fmt:message  key="label.listofusers" /></h2>
 		</div>
 </div>
-${message}
+<c:out value="${message}"/>
 <div id="container">
    <div id="content">
 	   <!--  Add User button-->

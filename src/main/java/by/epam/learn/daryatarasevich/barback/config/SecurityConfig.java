@@ -7,13 +7,16 @@ public class SecurityConfig {
     public static final String ROLE_USER = "USER";
     public static final String ROLE_BARTENDER = "BARTENDER";
     public static final String ROLE_ADMINISTRATOR = "ADMINISTRATOR";
-
-    private static final Map<String, List<String>> mapConfig = new HashMap<>();
+    private static final Map<String, List<String>> mapOfAccess = new HashMap<>();
 
     static {
         init();
     }
-
+    /**
+     * To define lists of jsp pages each user role has access to.
+     * Roles are: USER, BARTENDER, ADMINISTRATOR.
+     *
+     */
     private static void init() {
         //User
         List<String> urlPatterns1 = new ArrayList<String>();
@@ -25,7 +28,7 @@ public class SecurityConfig {
         urlPatterns1.add("/assesscocktails.jsp");
         urlPatterns1.add("/listofsuggestedcocktails.jsp");
         urlPatterns1.add("/deleteaccount.jsp");
-        mapConfig.put(ROLE_USER, urlPatterns1);
+        mapOfAccess.put(ROLE_USER, urlPatterns1);
         //bartender
         List<String> urlPatterns2 = new ArrayList<String>();
         urlPatterns2.add("/login.jsp");
@@ -35,7 +38,7 @@ public class SecurityConfig {
         urlPatterns2.add("/assesscocktails.jsp");
         urlPatterns2.add("/bartender/listofcreatedcocktails.jsp");
         urlPatterns2.add("/deleteaccount.jsp");
-        mapConfig.put(ROLE_BARTENDER, urlPatterns2);
+        mapOfAccess.put(ROLE_BARTENDER, urlPatterns2);
         //administrator
         List<String> urlPatterns3 = new ArrayList<String>();
         urlPatterns3.add("/login");
@@ -55,14 +58,20 @@ public class SecurityConfig {
         urlPatterns3.add("/administrator/updateingredientform.jsp");
         urlPatterns3.add("/administrator/updateuserform.jsp");
         urlPatterns3.add("/administrator/cocktailtoapprovepage.jsp");
-        mapConfig.put(ROLE_ADMINISTRATOR, urlPatterns3);
+        mapOfAccess.put(ROLE_ADMINISTRATOR, urlPatterns3);
     }
-
+    /**
+     * To get all keys(roles) from map.
+     *
+     */
     public static Set<String> getAllAppRoles() {
-        return mapConfig.keySet();
+        return mapOfAccess.keySet();
     }
-
+    /**
+     * To get list of all pages this user role has access to.
+     *
+     */
     public static List<String> getUrlPatternsForRole(String role) {
-        return mapConfig.get(role);
+        return mapOfAccess.get(role);
     }
 }

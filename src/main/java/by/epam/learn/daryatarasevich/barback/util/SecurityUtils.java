@@ -1,27 +1,38 @@
 package by.epam.learn.daryatarasevich.barback.util;
 
 import by.epam.learn.daryatarasevich.barback.config.SecurityConfig;
+
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Set;
 
-
 public class SecurityUtils {
-    // check if this 'request' needs logging.
+
+    /**
+     * To check if this request needs logging in.
+     *
+     * @param request
+     * @return true
+     */
     public static boolean isSecurityPage(HttpServletRequest request) {
-//        String urlPattern = UrlPatternUtils.getUrlPattern (request);
+        boolean isSecurityPage = false;
         String servletPath = request.getServletPath();
         Set<String> roles = SecurityConfig.getAllAppRoles();
         for (String role : roles) {
             List<String> urlPatterns = SecurityConfig.getUrlPatternsForRole(role);
             if (urlPatterns != null && urlPatterns.contains(servletPath)) {
-                return true;
+                isSecurityPage = true;
             }
         }
-        return false;
+        return isSecurityPage;
     }
 
-    // check if this 'request'has suitable role
+    /**
+     * To check if this request has suitable role.
+     *
+     * @param request
+     * @return true if role has permission to go to this page
+     */
     public static boolean hasPermission(HttpServletRequest request) {
         String urlPattern = UrlPatternUtils.getUrlPattern(request);
         Set<String> allRoles = SecurityConfig.getAllAppRoles();

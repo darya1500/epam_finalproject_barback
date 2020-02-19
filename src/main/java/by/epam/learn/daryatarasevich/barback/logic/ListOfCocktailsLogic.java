@@ -51,7 +51,7 @@ public class ListOfCocktailsLogic {
      * @param request
      *
      */
-    public void addCocktail(HttpServletRequest request) throws NamingException {
+    public void addCocktail(HttpServletRequest request) throws NamingException,NullPointerException {
         int numberOfIngredients = Integer.parseInt(request.getParameter(NUMBER_OF_INGREDIENTS));
         String cocktailNameEN = request.getParameter(COCKTAIL_NAME_EN);
         boolean validated= commonValidator.validateCocktail(cocktailNameEN);
@@ -96,7 +96,7 @@ public class ListOfCocktailsLogic {
      *
      * @param request
      */
-    public void updateCocktail(HttpServletRequest request) {
+    public void updateCocktail(HttpServletRequest request) throws NullPointerException{
         List<Component> components = new ArrayList<>();
         for (int i = 1; i <= 10; i++) {
             String ingredientAmount = request.getParameter(INGREDIENT_AMOUNT + i);
@@ -157,12 +157,12 @@ public class ListOfCocktailsLogic {
      */
     private int handleIngredient(String ingredientNameEN, String ingredientNameRU) throws NamingException {
         int ingredientID = 0;
-        boolean isRegistered = cocktailDAO.checkIngredient(ingredientNameEN);
+        boolean isRegistered = ingredientDAO.checkIngredientByName(ingredientNameEN);
         if (isRegistered) {
-            ingredientID = cocktailDAO.getIngredientID(ingredientNameEN);
+            ingredientID = ingredientDAO.getID(ingredientNameEN);
         } else {
-            cocktailDAO.addIngredient(ingredientNameEN, ingredientNameRU);
-            ingredientID = cocktailDAO.getIngredientID(ingredientNameEN);
+            ingredientDAO.addIngredient(ingredientNameEN, ingredientNameRU);
+            ingredientID = ingredientDAO.getID(ingredientNameEN);
         }
         return ingredientID;
     }

@@ -1,19 +1,21 @@
 package by.epam.learn.daryatarasevich.barback.command;
+
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import javax.servlet.http.HttpServletRequest;
 
 public class ActionFactory {
     private static final Logger LOGGER = LogManager.getLogger(ActionFactory.class);
-    private static final String ERROR_MESSAGE="wrongAction";
-    private final static String COMMAND="command";
+    private static final String ERROR_MESSAGE = "wrongAction";
+    private final static String COMMAND = "command";
+
     /**
      * To define command from fixed list, specified in CommandEnum.
      * If command is empty or null it will be defined as EmptyCommand.
      *
      * @param request
-     * @throws IllegalArgumentException
      * @return current
      */
     public ActionCommand defineCommand(HttpServletRequest request) {

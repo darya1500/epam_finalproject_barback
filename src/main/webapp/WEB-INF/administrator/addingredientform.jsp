@@ -17,10 +17,11 @@
 		</div>
 	</div>
 	<div id="container">
+		<c:out value="${sessionScope.whileAddingIngredientMessage}"/>
+		<c:remove var="whileAddingIngredientMessage" scope="session" />
 		<h3><fmt:message  key="label.addingredient" /></h3>
 		<form action="controller" method="POST">
-			<input type="hidden" name="command" value="listofingredients" />
-			<input type="hidden" name="operation" value="ADD" />
+			<input type="hidden" name="command" value="addingredient" />
 			<table>
 				<tbody>
 				<tr>

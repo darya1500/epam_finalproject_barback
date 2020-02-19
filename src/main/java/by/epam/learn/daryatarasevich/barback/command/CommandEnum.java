@@ -22,6 +22,21 @@ public enum CommandEnum {
             this.command=new LocaleCommand();
         }
     },
+    ADDBARTENDER{
+        {
+            this.command=new AddBartenderCommand();
+        }
+    },
+    ADDINGREDIENT{
+        {
+            this.command=new AddIngredientCommand();
+        }
+    },
+    ADDUSER{
+        {
+            this.command=new AddUserCommand();
+        }
+    },
     COCKTAILPAGE{
         {
             this.command=new CocktailPageCommand();

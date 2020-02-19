@@ -12,6 +12,7 @@ import java.util.List;
 
 public abstract class DAO<T> {
     private static final Logger LOGGER = LogManager.getLogger(DAO.class);
+
     public abstract void add(T t);
 
     public abstract void update(T t);
@@ -23,7 +24,13 @@ public abstract class DAO<T> {
     public abstract T getT(String id);
 
     public abstract T getT(T t);
-
+    /**
+     * To close connection, statement,result set.
+     *
+     * @param myConn
+     * @param myStmt
+     * @param myRs
+     */
     public void close(Connection myConn, Statement myStmt, ResultSet myRs) {
         try {
             if (myRs != null) {

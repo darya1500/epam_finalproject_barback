@@ -8,7 +8,6 @@ import by.epam.learn.daryatarasevich.barback.pool.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.naming.NamingException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,6 +20,11 @@ import java.io.IOException;
 public class ControllerServlet extends HttpServlet {
     private static final Logger LOGGER = LogManager.getLogger(ControllerServlet.class);
 
+    /**
+     * To init ControllerServlet.
+     *
+     * @throws ServletException
+     */
     @Override
     public void init() throws ServletException {
         super.init();
@@ -35,7 +39,7 @@ public class ControllerServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws  IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.sendRedirect(request.getHeader("referer"));
     }
 
@@ -44,21 +48,18 @@ public class ControllerServlet extends HttpServlet {
         processRequest(request, response);
     }
 
+    /**
+     * To process request. At first to get command from request. Then to execute command.
+     * And to either redirect to defined page if command requires redirect or to forward if command does not require redirect.
+     *
+     * @param request
+     * @param response
+     */
     private void processRequest(HttpServletRequest request, HttpServletResponse response) {
         String page = null;
         ActionFactory client = new ActionFactory();
         ActionCommand command = client.defineCommand(request);
-        try {
-            page = command.execute(request);
-        } catch (NoSuchUserException e) {
-            LOGGER.error(MessageManager.getProperty("message.nosuchuserexception"));
-    } catch (IncorrectPasswordException e) {
-            LOGGER.error(MessageManager.getProperty("message.incorrectpasswordexception"));
-        } catch (IngredientDBException e) {
-            LOGGER.error(MessageManager.getProperty("message.ingredientdbexception"));
-        } catch (NamingException e) {
-            LOGGER.error(MessageManager.getProperty("message.namingexception"));
-        }
+        page = command.execute(request);
         if (page != null) {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
             try {

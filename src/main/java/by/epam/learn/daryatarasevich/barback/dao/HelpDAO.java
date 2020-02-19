@@ -15,6 +15,13 @@ import java.util.List;
 public class HelpDAO extends DAO<Help> {
     private static final Logger LOGGER = LogManager.getLogger(HelpDAO.class);
 
+    /**
+     * To add help message and information about sender to database barbackdb.help.
+     *
+     * @param name
+     * @param email
+     * @param message
+     */
     public void add(String name, String email, String message) {
         Connection myConn = null;
         PreparedStatement myStmt = null;
@@ -26,7 +33,7 @@ public class HelpDAO extends DAO<Help> {
             myStmt.setString(2, email);
             myStmt.setString(3, message);
             myStmt.execute();
-        } catch (SQLException  e) {
+        } catch (SQLException e) {
             LOGGER.error(MessageManager.getProperty("message.sqlexception"));
         } catch (ConnectionPoolException e) {
             LOGGER.error(MessageManager.getProperty("message.connectionpoolexception"));
@@ -35,21 +42,11 @@ public class HelpDAO extends DAO<Help> {
         }
     }
 
-
-    @Override
-    public void add(Help help) {
-
-    }
-
-    @Override
-    public void update(Help help) {
-
-    }
-
-    @Override
-    public void delete(String id) {
-
-    }
+    /**
+     * To get all help messages and information about senders from database barbackdb.help.
+     *
+     * @return list
+     */
 
     @Override
     public List<Help> getAll() {
@@ -81,15 +78,11 @@ public class HelpDAO extends DAO<Help> {
         return list;
     }
 
-    @Override
-    public Help getT(String id) {
-        return null;
-    }
-
-    @Override
-    public Help getT(Help help) {
-        return null;
-    }
+    /**
+     * To change status of message defined by id to HELPED.
+     *
+     * @param id
+     */
 
     public void update(int id) {
         Connection myConn = null;
@@ -102,12 +95,49 @@ public class HelpDAO extends DAO<Help> {
             myStmt = myConn.prepareStatement(sql);
             myStmt.setInt(1, id);
             myStmt.execute();
-        } catch (SQLException  e) {
+        } catch (SQLException e) {
             LOGGER.error(MessageManager.getProperty("message.sqlexception"));
         } catch (ConnectionPoolException e) {
             LOGGER.error(MessageManager.getProperty("message.connectionpoolexception"));
         } finally {
             close(myConn, myStmt, null);
         }
+    }
+
+    /**
+     * Out of use method.
+     */
+    @Override
+    public void add(Help help) {
+    }
+
+    /**
+     * Out of use method.
+     */
+    @Override
+    public void update(Help help) {
+    }
+
+    /**
+     * Out of use method.
+     */
+    @Override
+    public void delete(String id) {
+    }
+
+    /**
+     * Out of use method.
+     */
+    @Override
+    public Help getT(String id) {
+        return null;
+    }
+
+    /**
+     * Out of use method.
+     */
+    @Override
+    public Help getT(Help help) {
+        return null;
     }
 }

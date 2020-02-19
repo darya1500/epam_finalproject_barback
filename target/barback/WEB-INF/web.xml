@@ -5,7 +5,7 @@
               http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1"
          metadata-complete="true">
-<display-name>Barback</display-name>
+    <display-name>Barback</display-name>
     <!--security filter-->
     <filter>
         <filter-name>SecurityFilter</filter-name>
@@ -19,7 +19,7 @@
         <filter-name>SecurityFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-<!--encoding filter-->
+    <!--encoding filter-->
     <filter>
         <filter-name>EncodingFilter</filter-name>
         <filter-class>by.epam.learn.daryatarasevich.barback.filter.EncodingFilter</filter-class>

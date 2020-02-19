@@ -8,19 +8,21 @@ import by.epam.learn.daryatarasevich.barback.exception.RatingErrorException;
 import by.epam.learn.daryatarasevich.barback.logic.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
 public class RateCocktailCommand implements ActionCommand {
-    RateCocktailLogic rateCocktailLogic=new RateCocktailLogic();
-    ListOfCocktailsLogic listOfCocktailsLogic=new ListOfCocktailsLogic();
-    ListOfUsersLogic listOfUsersLogic=new ListOfUsersLogic();
-    ListOfIngredientsLogic listOfIngredientsLogic=new ListOfIngredientsLogic();
+    RateCocktailLogic rateCocktailLogic = new RateCocktailLogic();
+    ListOfCocktailsLogic listOfCocktailsLogic = new ListOfCocktailsLogic();
+    ListOfUsersLogic listOfUsersLogic = new ListOfUsersLogic();
+    ListOfIngredientsLogic listOfIngredientsLogic = new ListOfIngredientsLogic();
     private static final Logger LOGGER = LogManager.getLogger(RateCocktailCommand.class);
+
     /**
      * To rate cocktail.
      * To get cocktail,author and ingredients data from database.
-     *To check if user has already rated cocktail. If not then to rate cocktail.
+     * To check if user has already rated cocktail. If not then to rate cocktail.
      *
      * @param request
      * @return page
@@ -28,26 +30,26 @@ public class RateCocktailCommand implements ActionCommand {
     @Override
     public String execute(HttpServletRequest request) {
         String page = null;
-        Cocktail cocktail=listOfCocktailsLogic.loadCocktail(request);
-        if (cocktail==null){
+        Cocktail cocktail = listOfCocktailsLogic.loadCocktail(request);
+        if (cocktail == null) {
             request.setAttribute("message", MessageManager.getProperty("message.ratingerror"));
             LOGGER.error(MessageManager.getProperty("message.ratingerror"));
             page = ConfigurationManager.getProperty("path.page.cocktailpage");
             return page;
         }
-        request.setAttribute("COCKTAIL",cocktail);
-        int authorID=cocktail.getAuthor().getId();
-        User author=listOfUsersLogic.loadUserByID(authorID);
-        request.setAttribute ("AUTHOR", author);
-        ArrayList<Ingredient> ingredients=listOfIngredientsLogic.getAllByCocktail(cocktail);
-        request.setAttribute("INGREDIENTS",ingredients);
-        boolean rated=rateCocktailLogic.checkIfRated(request);
-        if (rated){
+        request.setAttribute("COCKTAIL", cocktail);
+        int authorID = cocktail.getAuthor().getId();
+        User author = listOfUsersLogic.loadUserByID(authorID);
+        request.setAttribute("AUTHOR", author);
+        ArrayList<Ingredient> ingredients = listOfIngredientsLogic.getAllByCocktail(cocktail);
+        request.setAttribute("INGREDIENTS", ingredients);
+        boolean rated = rateCocktailLogic.checkIfRated(request);
+        if (rated) {
             request.setAttribute("message", MessageManager.getProperty("message.ratingerror"));
             LOGGER.error(MessageManager.getProperty("message.ratingerror"));
             page = ConfigurationManager.getProperty("path.page.cocktailpage");
             return page;
-        }else{
+        } else {
             try {
                 rateCocktailLogic.rate(request);
             } catch (RatingErrorException e) {

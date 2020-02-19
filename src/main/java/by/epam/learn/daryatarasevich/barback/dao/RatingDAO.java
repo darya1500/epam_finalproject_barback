@@ -5,6 +5,7 @@ import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import by.epam.learn.daryatarasevich.barback.pool.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,32 +14,13 @@ public class RatingDAO extends DAO {
     private static final Logger LOGGER = LogManager.getLogger(RatingDAO.class);
     private final static String RATE = "rate";
 
-    @Override
-    public void add(Object o) {
-    }
-
-    @Override
-    public void update(Object o) {
-    }
-
-    @Override
-    public void delete(String id) {
-    }
-
-    @Override
-    public List getAll() {
-        return null;
-    }
-
-    @Override
-    public Object getT(String id) {
-        return null;
-    }
-
-    @Override
-    public Object getT(Object o) {
-        return null;
-    }
+    /**
+     * To check in database barbackdb.rating if user defined by id has already rated cocktail defined by id.
+     *
+     * @param cocktailID
+     * @param userIDFrom
+     * @return true if user has already rated this cocktail
+     */
 
     public boolean checkRating(String cocktailID, int userIDFrom) {
         boolean rated = false;
@@ -61,6 +43,14 @@ public class RatingDAO extends DAO {
         return rated;
     }
 
+    /**
+     * To add rating to database barbackdb.rating.
+     *
+     * @param userIDFrom
+     * @param cocktailID
+     * @param authorID
+     * @param star
+     */
     public void addRating(int userIDFrom, String cocktailID, String authorID, String star) {
         Connection myConn = null;
         PreparedStatement myStmt = null;
@@ -81,11 +71,11 @@ public class RatingDAO extends DAO {
             close(myConn, myStmt, null);
         }
     }
+
     /**
      * To get cocktail ratings from database barbackdb.rating by cocktail id.
      *
      * @param id
-     * @throws SQLException,ConnectionPoolException
      * @return ratings
      */
     public List<Integer> getAllRatings(int id) {
@@ -111,6 +101,12 @@ public class RatingDAO extends DAO {
         return ratings;
     }
 
+    /**
+     * To get all ratings of cocktails created by user defined by id from barbackdb.rating.
+     *
+     * @param authorID
+     * @return ratings
+     */
     public List<Integer> getAllAuthorRatings(int authorID) {
         List<Integer> ratings = new ArrayList<>();
         Connection myConn = null;
@@ -132,5 +128,50 @@ public class RatingDAO extends DAO {
             close(myConn, myStmt, myRs);
         }
         return ratings;
+    }
+
+    /**
+     * Out of use method.
+     */
+    @Override
+    public void add(Object o) {
+    }
+
+    /**
+     * Out of use method.
+     */
+    @Override
+    public void update(Object o) {
+    }
+
+    /**
+     * Out of use method.
+     */
+    @Override
+    public void delete(String id) {
+    }
+
+    /**
+     * Out of use method.
+     */
+    @Override
+    public List getAll() {
+        return null;
+    }
+
+    /**
+     * Out of use method.
+     */
+    @Override
+    public Object getT(String id) {
+        return null;
+    }
+
+    /**
+     * Out of use method.
+     */
+    @Override
+    public Object getT(Object o) {
+        return null;
     }
 }

@@ -165,7 +165,7 @@
             <fmt:message key="label.delete"/>
         </button>
     </form>
-    ${message}
+    <c:out value="${message}"/>
     <br>
 </div>
 <br>

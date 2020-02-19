@@ -1,7 +1,5 @@
 package by.epam.learn.daryatarasevich.barback.filter;
 
-import by.epam.learn.daryatarasevich.barback.exception.ConnectionPoolException;
-
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebInitParam;
@@ -21,7 +19,7 @@ public class EncodingFilter implements Filter {
         code = filterConfig.getInitParameter(ENCODING);
     }
     /**
-     * To perform filter work.
+     * To perform encoding filtering.
      *
      * @param request
      * @param response

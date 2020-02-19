@@ -9,6 +9,7 @@ import by.epam.learn.daryatarasevich.barback.util.AppUtils;
 import by.epam.learn.daryatarasevich.barback.validation.RatingValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class RateCocktailLogic {
     private final static String AUTHOR_ID = "authorID";
     private final static String STAR = "star";
     private final static String COCKTAIL_ID = "cocktailID";
-    RatingValidator ratingValidator=new RatingValidator();
+    RatingValidator ratingValidator = new RatingValidator();
     private static final Logger LOGGER = LogManager.getLogger(RateCocktailLogic.class);
 
     /**
@@ -46,10 +47,10 @@ public class RateCocktailLogic {
         String star = request.getParameter(STAR);
         String cocktailID = request.getParameter(COCKTAIL_ID);
         String authorID = request.getParameter(AUTHOR_ID);
-        boolean validated=ratingValidator.validate(star,cocktailID,authorID);
-        if (validated){
+        boolean validated = ratingValidator.validate(star, cocktailID, authorID);
+        if (validated) {
             ratingDAO.addRating(userIDFrom, cocktailID, authorID, star);
-        }else {
+        } else {
             LOGGER.error(MessageManager.getProperty("message.errorrating"));
             throw new RatingErrorException(MessageManager.getProperty("message.errorrating"));
         }
