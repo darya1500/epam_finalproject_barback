@@ -6,6 +6,9 @@ import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class RegisterValidator {
     private static final Logger LOGGER = LogManager.getLogger(RegisterValidator.class);
 
@@ -43,23 +46,22 @@ public class RegisterValidator {
      */
     public boolean validateEmail(String email) throws InvalidEmailException {
         boolean validated = false;
-        char[] emailChars = email.toCharArray();
-        if (emailChars.length < 6) {
+        if (email.toCharArray().length < 6) {
             validated = false;
             LOGGER.error(MessageManager.getProperty("message.emailistooshort"));
         }
         boolean checked = false;
-        for (Character ch : emailChars) {
-            if (ch.equals('@')) {
+        Pattern p=Pattern.compile("@");
+        Matcher m=p.matcher(email);
+            if (m.find()) {
                 checked = true;
             }
-        }
         boolean checked2 = false;
-        for (Character ch : emailChars) {
-            if (ch.equals('.')) {
+        Pattern p2=Pattern.compile("\\.");
+        Matcher m2=p2.matcher(email);
+            if (m2.find()) {
                 checked2 = true;
             }
-        }
         if (checked && checked2) {
             validated = true;
         } else {

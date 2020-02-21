@@ -32,7 +32,7 @@
                     <td> <form action="controller" method="POST">
                         <input type="hidden" name="command" value="helped"/>
                         <input type="hidden" name="helpID" value="${tempHelp.id}" />
-                        <button class="menu-text" type="submit">
+                        <button class="back-button" type="submit">
                             <fmt:message  key="label.helped" />
                         </button>
                     </form>
@@ -43,7 +43,7 @@
     </div>
 </div>
 <br/>
-<button class="button" onclick="javascript:history.back(); return false;"><fmt:message  key="label.back" /></button>
+<button class="back-button" onclick="javascript:history.back(); return false;"><fmt:message  key="label.back" /></button>
 <jsp:include page="/WEB-INF/myfooter.html"/>
 </body>
 </html>

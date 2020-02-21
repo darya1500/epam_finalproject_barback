@@ -6,7 +6,6 @@
 <head>
     <title> <fmt:message key="label.login"/></title>
     <link type="text/css" rel="stylesheet" href="css/style.css">
-    <link type="text/css" rel="stylesheet" href="css/w3.css">
     <meta charset="UTF-8">
 </head>
 <body>
@@ -17,19 +16,22 @@
     </div>
 </div></br>
 <!-- Login form    -->
-<h2> <fmt:message key="label.loginusingyour"/></h2>
-<c:out value="${sessionScope.errorLoginPassMessage}"/>
-<c:remove var="errorLoginPassMessage" scope="session" />
+<h2 class="login" > <fmt:message key="label.loginusingyour"/></h2>
+<div class="help">
+<b style="color: #c40000"> <c:out value="${sessionScope.errorLoginPassMessage}"/></b>
+<c:remove var="errorLoginPassMessage" scope="session" /><br/><br/>
+</div>
+<div class="help">
 <form name="loginform" action="controller" method="POST">
     <input type="hidden" name="command" value="login"/>
-      <fmt:message key="label.email"/> :<span style="padding: 0px 30px;">&nbsp;</span><input type="text" name="email"><br/><br/>
-      <fmt:message key="label.password"/> :<span style="padding: 0px 20px;">&nbsp;</span><input type="password" name="password"><br><br>
-    <br/>
+      <fmt:message key="label.email"/> :<input class="help-input"type="text" name="email"><br/><br/>
+      <fmt:message key="label.password"/> :<input class="help-input"type="password" name="password"><br><br><br/>
     <button class="menu-text" type="submit">
         <fmt:message key="label.submit"/>
     </button>
 </form>
-<button class="button" onclick="javascript:history.back(); return false;"><fmt:message  key="label.back" /></button>
+</div>
+<button class="back-button" onclick="javascript:history.back(); return false;"><fmt:message  key="label.back" /></button>
 <jsp:include page="/WEB-INF/myfooter.html"/>
 </body>
 </html>

@@ -63,12 +63,12 @@
 <c:out value="${message}"/>
 <div id="container">
    <div id="content">
+       <div class="help" style="width: 85%">
    <!--  Add Bartender button-->
-       <input type="button" value="Add Bartender"
-              onclick="window.location.href='/barback/addbartenderform'; return false;"
-              class="add-bartender-button"
-       />
-		<table>
+       <input  type="button" value="Add Bartender" style="margin-left: 10px" onclick="window.location.href='/barback/addbartenderform'; return false;"
+              class="back-button"/>
+           <br/> <br/>
+		<table style="width: 85%">
 			<tr>
 					<th><fmt:message key="label.firstname" /></th>
 					<th><fmt:message key="label.nameRU" /></th>
@@ -91,7 +91,7 @@
                         <td> <form action="controller" method="POST">
                             <input type="hidden" name="command" value="updatebartenderform"/>
                             <input type="hidden" name="userID" value="${tempBartender.id}" />
-                            <button class="menu-text" type="submit">
+                            <button class="white-button" type="submit">
                                 <fmt:message  key="label.update" />
                             </button>
                         </form>
@@ -100,7 +100,7 @@
                                 <input type="hidden" name="command" value="listofbartenders"/>
                                 <input type="hidden" name="operation" value="DELETE"/>
                                 <input type="hidden" name="userID" value="${tempBartender.id}" />
-                                <button class="menu-text" type="submit">
+                                <button class="white-button" type="submit">
                                     <fmt:message  key="label.delete" />
                                 </button>
                             </form>
@@ -109,9 +109,9 @@
                    </c:forEach>
 		</table>
 	</div>
-</div>
+</div></div>
 <br/>
-<button class="button" onclick="javascript:history.back(); return false;"><fmt:message  key="label.back" /></button>
+<button class="back-button" onclick="javascript:history.back(); return false;"><fmt:message  key="label.back" /></button>
 <jsp:include page="/WEB-INF/myfooter.html"/>
 </body>
 </html>

@@ -7,10 +7,6 @@
     <meta charset="UTF-8">
     <title><fmt:message  key="label.listofcocktailstoapprove" /></title>
     <link type="text/css" rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <style>
         input[type=submit] {
             background-color: #ffffff;
@@ -58,7 +54,7 @@
     </div>
 </div>
 <br/>
-<button class="button" onclick="javascript:history.back(); return false;"><fmt:message  key="label.back" /></button>
+<button class="back-button" onclick="javascript:history.back(); return false;"><fmt:message  key="label.back" /></button>
 <jsp:include page="/WEB-INF/myfooter.html"/>
 </body>
 </html>

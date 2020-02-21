@@ -63,9 +63,11 @@
 <c:out value="${message}"/>
 <div id="container">
    <div id="content">
+	   <div class="help" style="width: 85%">
 	   <!--  Add User button-->
-	   <input type="button" value="Add User" onclick="window.location.href='/barback/adduserform'; return false;" />
-		<table>
+	   <input type="button" class="back-button"style="margin-left: 10px"value="Add User" onclick="window.location.href='/barback/adduserform'"/>
+		   <br/><br/>
+		   <table style="width: 85%">
 			<tr>
 				<th><fmt:message key="label.nameEN" /></th>
 				<th><fmt:message key="label.nameRU" /></th>
@@ -88,7 +90,7 @@
 						<td> <form action="controller" method="POST">
 							<input type="hidden" name="command" value="updateuserform"/>
 							<input type="hidden" name="userID" value="${tempUser.id}" />
-							<button class="menu-text" type="submit">
+							<button class="white-button" type="submit">
 								<fmt:message  key="label.update" />
 							</button>
 						</form>
@@ -97,7 +99,7 @@
 								<input type="hidden" name="command" value="listofusers"/>
 								<input type="hidden" name="operation" value="DELETE"/>
 								<input type="hidden" name="userID" value="${tempUser.id}" />
-								<button class="menu-text" type="submit">
+								<button class="white-button" type="submit">
 									<fmt:message  key="label.delete" />
 								</button>
 							</form>
@@ -105,10 +107,10 @@
 					</tr>
                    </c:forEach>
 		</table>
-	</div>
+	   </div></div>
 </div>
 <br/>
-<button class="button" onclick="javascript:history.back(); return false;"><fmt:message  key="label.back" /></button>
+<button class="back-button" onclick="javascript:history.back(); return false;"><fmt:message  key="label.back" /></button>
 <jsp:include page="/WEB-INF/myfooter.html"/>
 </body>
 </html>

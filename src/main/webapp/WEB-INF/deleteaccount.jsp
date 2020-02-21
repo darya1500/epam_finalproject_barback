@@ -9,14 +9,16 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/myheader.jsp"/>
-<fmt:message  key="label.areyousure" />
+<div style="margin-left: 30px;font-family: sans-serif;font-size: larger;font-weight: bolder"> <fmt:message  key="label.areyousure" />
+    <br/><br/>
     <form action="controller" method="POST">
         <input type="hidden" name="command" value="deleteaccount" />
-        <button class="menu-text" type="submit">
+        <button class="menu-text" style="font-weight: normal" type="submit">
             <fmt:message  key="label.deleteaccount" />
         </button>
     </form>
-<button class="button" onclick="javascript:history.back(); return false;"><fmt:message  key="label.back" /></button>
+</div>
+<button class="back-button" onclick="javascript:history.back(); return false;"><fmt:message  key="label.back" /></button>
 <jsp:include page="/WEB-INF/myfooter.html"/>
 </body>
 </html>

@@ -40,14 +40,14 @@
             </tr>
             <c:forEach var="tempCocktail" items="${COCKTAILS}">
             <tr>
-                <td> ${tempCocktail.nameEN} </td>
-                <td> ${tempCocktail.nameRU} </td>
+            <td> <br/> ${tempCocktail.nameEN}  <br/></td>
+                <td>  <br/>${tempCocktail.nameRU} <br/> </td>
              </tr>
              </c:forEach>
              </table>
             </div>
 </div><br/>
-<button class="button" onclick="javascript:history.back(); return false;"><fmt:message  key="label.back" /></button>
+<button class="back-button" onclick="javascript:history.back(); return false;"><fmt:message  key="label.back" /></button>
 <jsp:include page="/WEB-INF/myfooter.html"/>
 </body>
 </html>

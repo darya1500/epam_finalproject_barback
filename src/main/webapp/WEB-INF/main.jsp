@@ -6,11 +6,19 @@
 <head>
     <meta charset="UTF-8">
     <title><fmt:message  key="label.welcome" />!</title>
-    <link type="text/css" rel="stylesheet" href="css/style.css">
-    <title><fmt:message key="label.welcome"/></title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 <jsp:include page="/WEB-INF/myheader.jsp"/><br/>
+<c:set scope="request" var="temp" value="${USER}"/>
+<div id="wrapper">
+    <div id="header">
+        <h2><fmt:message key="label.greeting"/> ${temp.name}</h2>
+    </div>
+</div>
+<br/>
+<div class="help">
+    <b style="color: #c40000">
 <c:out value="${sessionScope.whileAddingBartenderMessage}"/>
 <c:remove var="whileAddingBartenderMessage" scope="session" />
 <c:out value="${sessionScope.whileAddingUserMessage}"/>
@@ -21,19 +29,26 @@
 <c:remove var="whileAddingIngredientMessage" scope="session" />
 <c:out value="${message}"/>
 <c:out value="${defaultMessage}"/>
-<c:set scope="request" var="temp" value="${USER}"/>
-<div id="wrapper">
-    <div id="header">
-        <h2><fmt:message key="label.greeting"/> ${temp.name}</h2>
-    </div>
-</div><br/>
-<fmt:message key="label.welcome"/><br/><br/>
+    </b>
+</div>
+<br/><br/>
 <!--see list of cocktails for user -->
+<table class="table-main">
+    <tr>
+<div class="help" style="margin-bottom: 10px; margin-left: 40px">
+    <!-- suggest cocktail for user-->
+    <c:if test="${sessionScope.role == 'USER'}">
+        <button class="main-button" onclick="location.href='/barback/suggestcocktail'"><fmt:message key="label.suggestcocktail"/></button>
+    </c:if>
+    <!--create cocktail for bartender-->
+    <c:if test="${sessionScope.role == 'BARTENDER'}">
+        <button class="main-button" onclick="location.href='/barback/createcocktail'"><fmt:message key="label.createcocktail"/></button>
+    </c:if>
 <c:if test="${sessionScope.role == 'USER'}">
     <form name="listofcocktails" action="controller" method="POST">
         <input type="hidden" name="command" value="listofcocktails"/>
         <input type="hidden" name="operation" value="LIST"/>
-        <button type="submit">
+        <button class="main-button" type="submit">
             <fmt:message  key="label.listofcocktails" />
         </button>
     </form>
@@ -42,7 +57,7 @@
     <form name="listofcocktails" action="controller" method="POST">
         <input type="hidden" name="command" value="listofcocktails"/>
         <input type="hidden" name="operation" value="LIST"/>
-        <button type="submit">
+        <button class="main-button" type="submit">
             <fmt:message  key="label.listofcocktails" />
         </button>
     </form>
@@ -51,7 +66,7 @@
     <form name="listofcocktails" action="controller" method="POST">
         <input type="hidden" name="command" value="listofcocktails"/>
         <input type="hidden" name="operation" value="LIST"/>
-        <button type="submit">
+        <button class="main-button" type="submit">
             <fmt:message  key="label.listofcocktails" />
         </button>
     </form>
@@ -60,7 +75,7 @@
 <c:if test="${sessionScope.role == 'USER'}">
     <form action="controller" method="POST">
         <input type="hidden" name="command" value="listofsuggestedcocktails"/>
-        <button class="menu-text" type="submit">
+        <button class="main-button" type="submit">
             <fmt:message key="label.listofsuggestedcocktails"/>
         </button>
     </form>
@@ -69,24 +84,16 @@
 <c:if test="${sessionScope.role == 'BARTENDER'}">
     <form action="controller" method="POST">
         <input type="hidden" name="command" value="listofcreatedcocktails"/>
-        <button class="menu-text" type="submit">
+        <button class="main-button" type="submit">
             <fmt:message key="label.listofcreatedcocktails"/>
         </button>
     </form>
 </c:if>
-<!-- suggest cocktail for user-->
-<c:if test="${sessionScope.role == 'USER'}">
-    <button onclick="location.href='/barback/suggestcocktail'"><fmt:message key="label.suggestcocktail"/></button><br><br>
-</c:if>
-<!--create cocktail for bartender-->
-<c:if test="${sessionScope.role == 'BARTENDER'}">
-    <button onclick="location.href='/barback/createcocktail'"><fmt:message key="label.createcocktail"/></button><br><br>
-</c:if>
 <!-- logout-->
 <c:if test="${sessionScope.role == 'USER'}">
     <form action="controller" method="POST">
         <input type="hidden" name="command" value="logout"/>
-        <button class="menu-text" type="submit">
+        <button class="main-button" type="submit">
             <fmt:message key="label.logout"/>
         </button>
     </form>
@@ -95,25 +102,17 @@
 <c:if test="${sessionScope.role == 'BARTENDER'}">
     <form action="controller" method="POST">
         <input type="hidden" name="command" value="logout"/>
-        <button class="menu-text" type="submit">
+        <button class="main-button" type="submit">
             <fmt:message key="label.logout"/>
         </button>
     </form>
-</c:if>
-<!--delete account user-->
-<c:if test="${sessionScope.role == 'USER'}">
-    <button type="button" class="btn" onclick="location.href='/barback/deleteaccount'"><fmt:message key="label.deleteaccount"/></button><br><br>
-</c:if>
-<!--delete account bartender-->
-<c:if test="${sessionScope.role == 'BARTENDER'}">
-    <button type="button" class="btn" onclick="location.href='/barback/deleteaccount'"><fmt:message key="label.deleteaccount"/></button><br><br>
 </c:if>
 <!--see list of bartenders -->
 <c:if test="${sessionScope.role == 'ADMIN'}">
     <form name="listofbartenders" action="controller" method="POST">
         <input type="hidden" name="command" value="listofbartenders"/>
         <input type="hidden" name="operation" value="LIST"/>
-        <button class="menu-text" type="submit">
+        <button class="main-button" type="submit">
             <fmt:message key="label.listofbartenders"/>
         </button>
     </form>
@@ -123,7 +122,7 @@
     <form name="listofusers" action="controller" method="POST">
         <input type="hidden" name="command" value="listofusers"/>
         <input type="hidden" name="operation" value="LIST"/>
-        <button class="menu-text" type="submit">
+        <button class="main-button" type="submit">
             <fmt:message key="label.listofusers"/>
         </button>
     </form>
@@ -133,7 +132,7 @@
     <form name="listofingredients" action="controller" method="POST">
         <input type="hidden" name="command" value="listofingredients"/>
         <input type="hidden" name="operation" value="LIST"/>
-        <button class="menu-text" type="submit">
+        <button class="main-button" type="submit">
             <fmt:message key="label.listofingredients"/>
         </button>
     </form>
@@ -142,7 +141,7 @@
 <c:if test="${sessionScope.role == 'ADMIN'}">
     <form name="whoneedshelp" action="controller" method="POST">
         <input type="hidden" name="command" value="whoneedshelp"/>
-        <button class="menu-text" type="submit">
+        <button class="main-button" type="submit">
             <fmt:message key="label.whoneedshelp"/>
         </button>
     </form>
@@ -152,7 +151,7 @@
     <form name="userstochangestatus" action="controller" method="POST">
         <input type="hidden" name="command" value="userstochangestatus"/>
         <input type="hidden" name="operation" value="LIST"/>
-        <button class="menu-text" type="submit">
+        <button class="main-button" type="submit">
             <fmt:message key="label.userstochangestatus"/>
         </button>
     </form>
@@ -162,7 +161,7 @@
     <form name="listofcocktailstoapprove" action="controller" method="POST">
         <input type="hidden" name="command" value="listofcocktailstoapprove"/>
         <input type="hidden" name="operation" value="LIST"/>
-        <button class="menu-text" type="submit">
+        <button class="main-button" type="submit">
             <fmt:message key="label.listofcocktailstoapprove"/>
         </button>
     </form>
@@ -171,11 +170,25 @@
 <c:if test="${sessionScope.role == 'ADMIN'}">
     <form action="controller" method="POST">
         <input type="hidden" name="command" value="logout"/>
-        <button class="menu-text" type="submit">
+        <button class="main-button" type="submit">
             <fmt:message key="label.logout"/>
         </button>
     </form>
-</c:if><br/><br/>
+</c:if>
+    <br/> <br/>
+    <!--delete account user-->
+    <c:if test="${sessionScope.role == 'USER'}">
+        <button type="button" class="main-button" onclick="location.href='/barback/deleteaccount'"><fmt:message key="label.deleteaccount"/></button>
+    </c:if>
+    <!--delete account bartender-->
+    <c:if test="${sessionScope.role == 'BARTENDER'}">
+        <button type="button" class="main-button" onclick="location.href='/barback/deleteaccount'"><fmt:message key="label.deleteaccount"/></button>
+    </c:if>
+</div>
+    </tr>
+    <tr>
 <jsp:include page="/WEB-INF/myfooter.html"/>
+    </tr>
+</table>
 </body>
 </html>

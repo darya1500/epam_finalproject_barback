@@ -208,7 +208,7 @@
             <tr>
                 <th><fmt:message key="label.cocktailNameEN" /></th>
                 <th><fmt:message key="label.cocktailNameRU" /></th>
-                <th><fmt:message key="label.rating" /></th>
+                <th style="width: 30%"><fmt:message key="label.rating" /></th>
             </tr>
             <c:forEach var="tempCocktail" items="${COCKTAILS}" varStatus="status">
             <tr>
@@ -226,7 +226,7 @@
     </table>
 </div>
 </div><br/>
-<button class="button" onclick="javascript:history.back(); return false;"><fmt:message  key="label.back" /></button>
+<button class="back-button" onclick="javascript:history.back(); return false;"><fmt:message  key="label.back" /></button>
 <jsp:include page="/WEB-INF/myfooter.html"/>
 </body>
 </html>

@@ -10,7 +10,14 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/myheader.jsp"/>
+<div id="wrapper">
+    <div id="header">
 <h2><fmt:message key="label.suggestcocktail"/></h2>
+    </div></div><br/>
+<div class="suggest-cocktail">
+<fmt:message key="label.youcansuggest"/>
+</div><br/>
+<div class="suggest-cocktail">
 <form name="suggestcocktailform" action="controller" method="POST">
     <input type="hidden" name="command" value="suggestcocktail"/>
     <fmt:message key="label.nameEN"/>:<input type="text" name="nameEN"><br/><br/>
@@ -23,11 +30,12 @@
         </div>
         <br/>
     </c:forEach>
-    <button type="submit">
+    <button class="menu-text"type="submit">
         <fmt:message key="label.submit"/>
     </button>
 </form>
-<button type="button" class="button2" onclick="history.back(); return false;"><fmt:message key="label.back"/></button>
+</div>
+<button class="back-button" onclick="history.back(); return false;"><fmt:message key="label.back"/></button>
 <jsp:include page="/WEB-INF/myfooter.html"/>
 </body>
 </html>

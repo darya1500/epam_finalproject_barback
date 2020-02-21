@@ -7,13 +7,15 @@ html, body{
 table {
     border-collapse:collapse;
     border-bottom:1px solid gray;
-    font-family: Tahoma,Verdana,Segoe,sans-serif;
+    font-family: "Karma", sans-serif;
     padding: 15px;
+    margin-left: 30px;
+    width: 70%;
 }
 
 th {
     border-bottom:1px solid gray;
-    background:none repeat scroll 0 0 #0775d3;
+    background:none repeat scroll 0 0 #53d3cd;
     padding:10px;
     color: #FFFFFF;
 }
@@ -25,63 +27,55 @@ tr {
 tr:nth-child(even) {background: #FFFFFF}
 tr:nth-child(odd) {background:  #FFFFFF}
 
-
-#wrapper {width: 100%; margin-top: 0px; }
-#header {width: 72%; background: #0775d3; margin-top: 0px; padding:15px 0px 15px 0px;}
-#header h2 {width: 100%; margin:auto; color: #FFFFFF;}
+#wrapper {width: 95%;background: rgba(168, 79, 187, 0.5); margin-top: 0px;margin-left: 10px }
+#header {width: 100%; background: rgba(168, 79, 187, 0.5); margin-top: 0px;margin-left: 10px; padding:15px 0px 15px 0px;}
+#header h2 {width: 100%; margin:auto; color: #FFFFFF;font-family: "Karma", sans-serif}
 #container {width: 100%; margin:auto}
 #container h3 {color: #000;}
 #container #content {margin-top: 20px;}
 
-.add-user-button {
-    border: 1px solid #666;
-    border-radius: 5px;
-    padding: 4px;
-    font-size: 12px;
-    font-weight: bold;
-    width: 120px;
-    padding: 5px 10px;
-    margin-bottom: 15px;
-    background: #cccccc;
-}
-.button {
-    background-color: #6a6a6a;
+.language-button {
     border: none;
-    color: white;
-    padding: 15px 32px;
+    color: rgba(2, 7, 46, 0.75);
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
+    width: 120px;
+    background-color: white;
     cursor: pointer;
+    font-family: "Karma", sans-serif
+}
+.back-button {
+    background-color: #afaf22;
+    border: none;
+    color: white;
+    padding: 12px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 40px;
+    cursor: pointer;
+    margin-left: 20px;
+    font-family: "Karma", sans-serif
 }
 .button:hover {opacity: 1}
-input[type=submit] {
-    background-color: #ffffff;
-    border: none;
-    color: #0b013b;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
-}
+
 body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 .w3-bar-block .w3-bar-item {padding:20px}
 
-.btn-group .button {
-    background-color: rgba(225, 106, 251, 0);
-    border: none;
-    alignment: right;
-    color: #040404;
-    padding: 10px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
+.btn-group{
     float: right;
-    font-family: "Karma", sans-serif
+    display: inline-block;
+}
+.group{
+    float: left;
+    display: inline-block;
+    width: 300px;
+}
+.language-form{
+    display: inline-block;
 }
 .txt-center {
     text-align: center;
@@ -126,60 +120,65 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
     color: #FFD700;
 }
 #authortable th {
+    width: 95%;
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
     alignment: left;
     background-color: #dfb4b4;
     color: white;
-    width:40% ;
+    height: 40px;
 }
 #authortable tr {
+    width: 95%;
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
     alignment: left;
     background-color: #ffffff;
     color: #040404;
-    width: 60%;
+    height: 40px;
 }
 #cocktailtable th {
+    width: 95%;
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color:#b4dfdf;
+    background-color: lightblue;
     color: white;
-    width: 60%;
+    height: 40px;
 }
-#cocktailtable th {
+#cocktailtable tr {
+    width: 95%;
+    height: 40px;
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
     alignment: left;
     background-color: #ffffff;
     color: #040404;
-    width: 60%;
 }
 .stars-container{
     position: relative;
     display: inline-block;
     color: transparent;
-    font-size: 20px;
 }
 .stars-container:before{
     position: absolute;
     top: 0;
     left: 0;
-    content: '★★★★★';
+    content:'\2605\2605\2605\2605\2605';
     color:lightgray;
+    font-size: medium;
 }
 .stars-container:after {
     position: absolute;
     top: 0;
     left: 0;
-    content: '★★★★★';
+    content:'\2605\2605\2605\2605\2605';
     color: gold;
     overflow: hidden;
+    font-size: medium;
 }
 .stars-container.stars-0:after { width: 0%; }
 .stars-container.stars-5:after { width: 5%; }
@@ -203,25 +202,110 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 .stars-container.stars-95:after { width: 95%; }
 .stars-container.stars-100:after { width: 100%;}
 
-
 .author{
-    font-family: "Times New Roman", Times, serif;
+    font-family: "Karma", sans-serif;
+    margin-left: 30px;
 }
-.errormessage{
-    font-family: "Times New Roman", Times, serif;
-    color: darkred;
-}
-.button.ratebutton {
-    background-color: #c04ffb;
+.ratebutton {
+    background-color: rgba(181, 80, 243, 0.51);
     border: none;
-    color: #040404;
+    color: black;
     padding: 16px 32px;
     text-align: justify-all;
     font-size: 16px;
     margin: 4px 2px;
-    opacity: 0.6;
-    transition: 0.3s;
+    text-decoration: none;
+    cursor: pointer;
+}
+.help{
+    width: 25%;
+    font-family: "Karma", sans-serif;
+    margin-left: 20px;
+}
+.help-input{
+    float: right;
+}
+.menu-text{
+    background-color: #d7d7d7;
+    border: 1px solid #a2a2a2;
+    color: #040404;
+    padding: 6px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Karma", sans-serif
+}
+p{
+    margin-block-start: 1em;
+    margin-block-end: 0em;
+    font-family: "Karma", sans-serif
+}
+.footer{
+    alignment: bottom;
+    float: bottom;
+    margin-top: 1px;
+    text-align: center;
+}
+.login{
+    margin-left: 20px;
+    font-family: "Karma", sans-serif;
+    font-weight: lighter;
+}
+.main-button{
+    background-color: #afaf22;
+    border: none;
+    color: white;
+    padding: 12px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    cursor: pointer;
+    font-family: "Karma", sans-serif;
+    width: 300px;
+    height: 50px;
+}
+.error{
+    font-family: "Karma", sans-serif;
+    margin-left: 20px;
+    color: darkred;
+}
+.table-main{
+    margin-left: 30px;
+    width: 50%;
+}
+.suggest-cocktail{
+    width: 80%;
+    font-family: "Karma", sans-serif;
+    margin-left: 30px;
+}
+input[type=submit] {
+    background-color: #ffffff;
+    border: none;
+    color: #0b013b;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.white-button{
+    background-color: white;
+    border: none;
+    color: #00006e;
+    padding: 16px 32px;
+    text-align: justify-all;
+    font-size: 16px;
+    margin: 4px 2px;
     display: inline-block;
     text-decoration: none;
     cursor: pointer;
+}
+.buttonx {
+    background-color: rgba(181, 80, 243, 0.51);
+    border: none;
+    color: black;
+    padding: 8px 32px;
+    text-align: justify-all;
+    font-size: 16px;
 }

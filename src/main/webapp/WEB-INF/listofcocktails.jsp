@@ -6,7 +6,7 @@
 <head>
     <title><fmt:message key="label.listofcocktails"/></title>
     <link type="text/css" rel="stylesheet" href="css/style.css">
-    <link type="text/css" rel="stylesheet" href="css/w3.css">
+
 </head>
 <body>
 <jsp:include page="/WEB-INF/myheader.jsp"/>
@@ -19,13 +19,14 @@
 <c:out value="${message}"/>
 <div id="container">
     <div id="content">
+        <div class="help" style="width: 85%">
         <!--  Add Cocktail button-->
         <c:if test="${sessionScope.role == 'ADMIN'}">
-            <input type="button" value="Add Cocktail"
-                   onclick="window.location.href='/barback/addcocktailform'; return false;"
-                   class="add-cocktail-button"/>
+            <input type="button" value="Add Cocktail"style="margin-left: 10px"
+                   onclick="window.location.href='/barback/addcocktailform'; return false;" class="back-button"/>
+            <br/><br/>
         </c:if>
-        <table>
+        <table style="width: 85%">
             <tr>
                 <th><fmt:message key="label.cocktailNameEN"/></th>
                 <th><fmt:message key="label.cocktailNameRU"/></th>
@@ -52,7 +53,7 @@
                             <form action="controller" method="POST">
                                 <input type="hidden" name="command" value="updatecocktailform"/>
                                 <input type="hidden" name="cocktailID" value="${tempCocktail.id}"/>
-                                <button class="menu-text" type="submit">
+                                <button class="white-button" type="submit">
                                     <fmt:message key="label.update"/>
                                 </button>
                             </form>
@@ -60,7 +61,7 @@
                                 <input type="hidden" name="command" value="listofcocktails"/>
                                 <input type="hidden" name="operation" value="DELETE"/>
                                 <input type="hidden" name="cocktailID" value="${tempCocktail.id}"/>
-                                <button class="menu-text" type="submit">
+                                <button class="white-button" type="submit">
                                     <fmt:message key="label.delete"/>
                                 </button>
                             </form>
@@ -69,9 +70,9 @@
                 </tr>
             </c:forEach>
         </table>
-    </div>
+        </div></div>
 </div>
-<button class="button" onclick="javascript:history.back(); return false;"><fmt:message  key="label.back" /></button>
+<button class="back-button" onclick="javascript:history.back(); return false;"><fmt:message  key="label.back" /></button>
 <br/>
 <jsp:include page="/WEB-INF/myfooter.html"/>
 </body>

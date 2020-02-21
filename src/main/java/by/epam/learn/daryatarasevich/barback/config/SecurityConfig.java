@@ -28,6 +28,14 @@ public class SecurityConfig {
         urlPatterns1.add("/assesscocktails.jsp");
         urlPatterns1.add("/listofsuggestedcocktails.jsp");
         urlPatterns1.add("/deleteaccount.jsp");
+        urlPatterns1.add("/login");
+        urlPatterns1.add("/register");
+        urlPatterns1.add("/help");
+        urlPatterns1.add("/listofcocktails");
+        urlPatterns1.add("/suggestcocktail");
+        urlPatterns1.add("/assesscocktails");
+        urlPatterns1.add("/listofsuggestedcocktails");
+        urlPatterns1.add("/deleteaccount");
         mapOfAccess.put(ROLE_USER, urlPatterns1);
         //bartender
         List<String> urlPatterns2 = new ArrayList<String>();
@@ -38,6 +46,13 @@ public class SecurityConfig {
         urlPatterns2.add("/assesscocktails.jsp");
         urlPatterns2.add("/bartender/listofcreatedcocktails.jsp");
         urlPatterns2.add("/deleteaccount.jsp");
+        urlPatterns2.add("/login");
+        urlPatterns2.add("/help");
+        urlPatterns2.add("/listofcocktails");
+        urlPatterns2.add("/createcocktail");
+        urlPatterns2.add("/assesscocktails");
+        urlPatterns2.add("/listofcreatedcocktails");
+        urlPatterns2.add("/deleteaccount");
         mapOfAccess.put(ROLE_BARTENDER, urlPatterns2);
         //administrator
         List<String> urlPatterns3 = new ArrayList<String>();
@@ -58,6 +73,23 @@ public class SecurityConfig {
         urlPatterns3.add("/administrator/updateingredientform.jsp");
         urlPatterns3.add("/administrator/updateuserform.jsp");
         urlPatterns3.add("/administrator/cocktailtoapprovepage.jsp");
+        urlPatterns3.add("/login.jsp");
+        urlPatterns3.add("/listofcocktails");
+        urlPatterns3.add("/listofbartenders");
+        urlPatterns3.add("/listofusers");
+        urlPatterns3.add("/whoneedshelp");
+        urlPatterns3.add("/cocktailstoapprove");
+        urlPatterns3.add("/userstochangestatus");
+        urlPatterns3.add("/addbartenderform");
+        urlPatterns3.add("/addcocktailform");
+        urlPatterns3.add("/addingredientform");
+        urlPatterns3.add("/adduserform");
+        urlPatterns3.add("/listofingredients");
+        urlPatterns3.add("/updatebartenderform");
+        urlPatterns3.add("/updatecocktailform");
+        urlPatterns3.add("/updateingredientform");
+        urlPatterns3.add("/updateuserform");
+        urlPatterns3.add("/cocktailtoapprovepage");
         mapOfAccess.put(ROLE_ADMINISTRATOR, urlPatterns3);
     }
     /**

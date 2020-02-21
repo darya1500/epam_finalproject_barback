@@ -16,20 +16,21 @@
     </div>
 </div>
 <!-- !PAGE CONTENT! -->
-<h2><fmt:message key="label.createnewaccount"/></h2>
-<c:out value="${errorMessage}"/>
+<h2 class="login"><fmt:message key="label.createnewaccount"/></h2>
+<div class="help">
+<b style="color: #c40000"><c:out value="${errorMessage}"/></b>
+<div class="help"></div>
 <form name="registerform" action="controller" method="POST">
     <input type="hidden" name="command" value="register"/>
-    <fmt:message key="label.email"/>:<input type="text" name="email" placeholder="Your email.."><br/><br/>
-    <fmt:message key="label.password"/>:<input type="password" name="password"
-                                               placeholder="at least 6 symbols"><br/><br/>
-    <fmt:message key="label.firstname"/>:<input type="text" name="userNameEN" placeholder="Your name..."><br/><br/>
-    <fmt:message key="label.nameinrussian"/>:<input type="text" name="userNameRU" placeholder="Your name..."><br/><br/>
-    <fmt:message key="label.description"/>:<input type="text" name="description"
-                                                  placeholder="Some words about yourself..."><br/><br/>
-    <button type="submit"><fmt:message key="label.submit"/></button>
+    <fmt:message key="label.email"/>:<input class="help-input" type="text" name="email" placeholder="Your email.."><br/><br/>
+    <fmt:message key="label.password"/>:<input class="help-input"type="password" name="password" placeholder="at least 6 symbols"><br/><br/>
+    <fmt:message key="label.firstname"/>:<input class="help-input"type="text" name="userNameEN" placeholder="Your name..."><br/><br/>
+    <fmt:message key="label.nameinrussian"/>:<input class="help-input"type="text" name="userNameRU" placeholder="Your name..."><br/><br/>
+    <fmt:message key="label.description"/>:<input class="help-input"type="text" name="description" placeholder="Some words about yourself..."><br/><br/>
+    <button class="menu-text" type="submit"><fmt:message key="label.submit"/></button>
 </form>
-<button class="button2" onclick="javascript:history.back(); return false;"><fmt:message key="label.back"/></button>
+</div>
+<button class="back-button" onclick="javascript:history.back(); return false;"><fmt:message key="label.back"/></button>
 <jsp:include page="/WEB-INF/myfooter.html"/>
 </body>
 </html>

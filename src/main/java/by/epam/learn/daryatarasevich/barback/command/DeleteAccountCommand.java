@@ -24,8 +24,10 @@ public class DeleteAccountCommand implements ActionCommand {
         DeleteAccountLogic deleteAccountLogic = new DeleteAccountLogic();
         String message = deleteAccountLogic.delete(user);
         request.setAttribute("errorMessage", message);
+        request.removeAttribute("role");
+        request.removeAttribute("USER");
         request.getSession().setAttribute("role", ClientType.GUEST);
-        page = ConfigurationManager.getProperty("path.page.main");
+        page = ConfigurationManager.getProperty("path.page.index");
         return page;
     }
 }

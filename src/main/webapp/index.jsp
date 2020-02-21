@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <title><fmt:message key="label.barback"/></title>
-    <link type="text/css" rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" type="text/css" href="css/w3.css">
 </head>
 <body>
 <jsp:include page="/WEB-INF/myheader.jsp"/>

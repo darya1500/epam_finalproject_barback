@@ -65,7 +65,7 @@
         <table>
             <tr>
                 <th><fmt:message key="label.userName" /></th>
-                <th><fmt:message key="label.status" /></th>
+                <th><fmt:message key="label.role" /></th>
                 <th><fmt:message key="label.rating" /></th>
                 <th><fmt:message key="label.numberofcocktails" /></th>
                 <th><fmt:message key="label.action" /></th>
@@ -81,7 +81,7 @@
                     <td> <form action="controller" method="POST">
                         <input type="hidden" name="command" value="changestatus"/>
                         <input type="hidden" name="userID" value="${tempUser.id}" />
-                        <button class="menu-text" type="submit">
+                        <button class="ratebutton" type="submit">
                             <fmt:message  key="label.changestatus" />
                         </button>
                     </form>
@@ -92,7 +92,7 @@
     </div>
 </div>
 <br/>
-<button class="button" onclick="javascript:history.back(); return false;"><fmt:message  key="label.back" /></button>
+<button class="back-button" onclick="javascript:history.back(); return false;"><fmt:message  key="label.back" /></button>
 <jsp:include page="/WEB-INF/myfooter.html"/>
 </body>
 </html>
