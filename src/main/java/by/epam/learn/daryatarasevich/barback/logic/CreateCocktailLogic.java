@@ -6,7 +6,6 @@ import by.epam.learn.daryatarasevich.barback.entity.Cocktail;
 import by.epam.learn.daryatarasevich.barback.entity.Component;
 import by.epam.learn.daryatarasevich.barback.entity.Ingredient;
 import by.epam.learn.daryatarasevich.barback.entity.User;
-import by.epam.learn.daryatarasevich.barback.exception.IngredientDBException;
 import by.epam.learn.daryatarasevich.barback.exception.MessageManager;
 import by.epam.learn.daryatarasevich.barback.validation.CommonValidator;
 import org.apache.logging.log4j.LogManager;
@@ -46,7 +45,7 @@ public class CreateCocktailLogic {
      * @param request
      * @return cocktail
      */
-    public Cocktail getCocktail(HttpServletRequest request) throws IngredientDBException {
+    public Cocktail getCocktail(HttpServletRequest request){
         User user = (User) request.getSession().getAttribute(LOGED_USER);
         Cocktail cocktail = null;
         String nameEN = request.getParameter(NAME_EN);

@@ -30,11 +30,6 @@ public class CreateCocktailCommand implements ActionCommand {
             page = ConfigurationManager.getProperty("path.page.main");
             LOGGER.error(MessageManager.getProperty("message.cocktailisnull"));
             return page;
-        } catch (IngredientDBException e) {
-            request.getSession().setAttribute("whileAddingCocktailMessage", MessageManager.getProperty("message.createcocktailerror"));
-            page = ConfigurationManager.getProperty("path.page.main");
-            LOGGER.error(MessageManager.getProperty("message.createcocktailerror"));
-            return page;
         }
         try {
             createCocktailLogic.addCocktail(cocktail);
