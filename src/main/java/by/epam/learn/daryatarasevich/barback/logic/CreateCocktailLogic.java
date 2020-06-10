@@ -35,6 +35,7 @@ public class CreateCocktailLogic {
      * @param cocktail
      */
     public void addCocktail(Cocktail cocktail) {
+
         cocktailDAO.add(cocktail);
     }
 

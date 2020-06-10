@@ -1,92 +1,92 @@
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\ListOfUsersCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\logic\ListOfIngredientsLogic.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\UsersToChangeStatusCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\logic\ListOfCocktailsLogic.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\CommandEnum.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\logic\SuggestCocktailLogic.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\pool\DBManager.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\entity\Ingredient.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\exception\InvalidStatusException.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\exception\MessageManager.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\exception\InvalidPasswordException.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\CreateCocktailCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\ActionCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\exception\NoSuchUserException.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\util\SecurityUtils.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\validation\HelpValidator.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\ConfigurationManager.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\dao\RatingDAO.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\EmptyCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\ListOfSuggestedCocktailsCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\entity\Status.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\exception\IngredientDAOException.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\exception\InvalidEmailException.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\util\AppUtils.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\LogoutCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\exception\ConnectionPoolException.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\logic\CreateCocktailLogic.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\logic\DeleteAccountLogic.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\exception\IngredientDBException.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\pool\ConnectionPool.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\controller\ControllerServlet.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\LocaleCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\validation\RegisterValidator.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\logic\ListOfCocktailsToApproveLogic.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\LoginCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\logic\RegisterLogic.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\ListOfCocktailsCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\exception\RatingErrorException.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\validation\CommonValidator.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\pool\DBParameter.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\exception\CommandException.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\ListOfBartendersCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\filter\SecurityFilter.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\validation\LoginValidator.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\entity\User.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\logic\UsersToChangeStatusLogic.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\ListOfCocktailsToApproveCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\CocktailPageCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\dao\DAO.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\ActionFactory.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\filter\UserRoleRequestWrapper.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\WhoNeedsHelpCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\HelpCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\util\UrlPatternUtils.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\dao\HelpDAO.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\ChangeStatusCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\DeleteAccountCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\exception\NoSuchIngredientsException.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\exception\IncorrectPasswordException.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\AddUserCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\entity\Component.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\validation\RatingValidator.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\dao\UserDAO.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\RateCocktailCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\UpdateUserFormCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\exception\UnableDeleteAccountException.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\dao\IngredientDAO.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\AddIngredientCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\ListOfCreatedCocktailsCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\SuggestCocktailCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\logic\ListOfBartendersLogic.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\entity\Help.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\UpdateCocktailFormCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\filter\EncodingFilter.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\logic\LoginLogic.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\ListOfIngredientsCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\UpdateBartenderFormCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\logic\ClientType.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\HelpedCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\UpdateIngredientFormCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\config\SecurityConfig.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\dao\CocktailDAO.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\logic\ListOfUsersLogic.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\exception\RegistrationException.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\entity\HelpStatus.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\RegisterCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\entity\Cocktail.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\dao\SuggestedCocktailDAO.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\command\AddBartenderCommand.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\logic\RateCocktailLogic.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\entity\ID.java
-C:\Users\darya\IdeaProjects\barback\src\main\java\by\epam\learn\daryatarasevich\barback\logic\HelpLogic.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/UpdateBartenderFormCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/HelpedCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/pool/DBManager.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/exception/RatingErrorException.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/util/SecurityUtils.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/dao/UserDAO.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/DeleteAccountCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/exception/NoSuchUserException.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/logic/ListOfBartendersLogic.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/AddIngredientCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/SuggestCocktailCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/dao/IngredientDAO.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/ListOfCreatedCocktailsCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/RegisterCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/logic/HelpLogic.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/exception/MessageManager.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/logic/DeleteAccountLogic.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/ConfigurationManager.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/AddBartenderCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/controller/ControllerServlet.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/logic/UsersToChangeStatusLogic.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/ListOfIngredientsCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/config/SecurityConfig.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/ListOfSuggestedCocktailsCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/entity/Cocktail.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/exception/IncorrectPasswordException.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/UpdateUserFormCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/HelpCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/logic/ListOfCocktailsToApproveLogic.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/logic/ListOfCocktailsLogic.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/AddUserCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/logic/SuggestCocktailLogic.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/logic/RegisterLogic.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/LoginCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/filter/EncodingFilter.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/entity/Status.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/validation/LoginValidator.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/EmptyCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/validation/RatingValidator.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/validation/HelpValidator.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/exception/InvalidStatusException.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/util/UrlPatternUtils.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/ListOfUsersCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/exception/IngredientDBException.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/exception/InvalidPasswordException.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/exception/ConnectionPoolException.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/CommandEnum.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/dao/DAO.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/logic/RateCocktailLogic.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/ListOfBartendersCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/RateCocktailCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/ChangeStatusCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/entity/HelpStatus.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/logic/ListOfUsersLogic.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/WhoNeedsHelpCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/dao/SuggestedCocktailDAO.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/exception/InvalidEmailException.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/LocaleCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/dao/RatingDAO.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/util/AppUtils.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/exception/CommandException.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/validation/RegisterValidator.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/filter/SecurityFilter.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/validation/CommonValidator.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/entity/User.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/logic/LoginLogic.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/logic/CreateCocktailLogic.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/ListOfCocktailsToApproveCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/ActionFactory.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/entity/Ingredient.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/LogoutCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/exception/UnableDeleteAccountException.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/UpdateIngredientFormCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/pool/ConnectionPool.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/dao/CocktailDAO.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/UpdateCocktailFormCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/logic/ListOfIngredientsLogic.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/logic/ClientType.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/UsersToChangeStatusCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/entity/Help.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/exception/IngredientDAOException.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/entity/ID.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/entity/Component.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/ActionCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/pool/DBParameter.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/exception/RegistrationException.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/exception/NoSuchIngredientsException.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/CocktailPageCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/CreateCocktailCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/filter/UserRoleRequestWrapper.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/command/ListOfCocktailsCommand.java
+/Users/darya/IdeaProjects/barback /src/main/java/by/epam/learn/daryatarasevich/barback/dao/HelpDAO.java
