@@ -27,7 +27,9 @@ public class ControllerServlet extends HttpServlet {
      */
     @Override
     public void init() throws ServletException {
+
         super.init();
+
         ConnectionPool pool = ConnectionPool.POOL;
         if (!pool.isCreated().get()) {
             try {
